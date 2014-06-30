@@ -1,0 +1,14 @@
+<%= form_for @image, :html => { :multipart => true } do |form| %>  
+	<ol class="formList">  
+		<div class="field">
+			<%= form.label :name %><br>
+			<%= form.text_field :name %>
+		</div>
+		<li>  
+			<%= form.label :avatar, "Image" %>  
+			<%= form.file_field :avatar %>  
+		<li>  
+			<%= form.submit "Submit" %>  
+		</li>  
+	</ol>  
+<% end %> 

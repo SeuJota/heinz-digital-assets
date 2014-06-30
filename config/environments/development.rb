@@ -31,7 +31,15 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => "heinztest",
+    :access_key_id => "AKIAJIOO47EXYXSVUOEA",
+    :secret_access_key => "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"
+  }
+}
 end

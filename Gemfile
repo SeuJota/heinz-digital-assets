@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Ruby version control for Heroku
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use postgresql as the database for Active Record
@@ -38,5 +39,18 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+
+#- -- - -- - -- - Development Gems // Production Gems - -- - -- - -- - -- -
+#
+# Requirement for Heroku App Deployment
 gem 'rails_12factor', group: :production
-ruby "2.0.0"
+
+# Gem to manage Uploads and Connection with S3 Amazon database.
+gem 'paperclip'
+gem "cocaine"
+
+# Connection with database and S3 Amazon 
+gem 'aws-sdk'
+
+# User authentication and sessions control gem
+gem 'devise'

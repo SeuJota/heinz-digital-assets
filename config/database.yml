@@ -23,16 +23,15 @@ default: &default
 
 development:
   <<: *default
-  database: heinz_digital_assets_development
+  database: heinz
+  username: Guilherme # replace this with your own user name
+  password: Tolkien15
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: heinz_digital_assets
 
-  # The password associated with the postgres role (username).
-  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -81,5 +80,5 @@ test:
 production:
   <<: *default
   database: heinz_digital_assets_production
-  username: heinz_digital_assets
-  password: <%= ENV['HEINZ_DIGITAL_ASSETS_DATABASE_PASSWORD'] %>
+  # username: heinz_digital_assets
+  # password: <%= ENV['HEINZ_DIGITAL_ASSETS_DATABASE_PASSWORD'] %>

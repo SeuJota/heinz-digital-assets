@@ -1,0 +1,5 @@
+ <br/> <br/>
+ <td><%= image_tag @image.avatar.url %></td>
+ <br/> <br/>
+ <%= button_to "Download", download_image_path(id: @image.id) , method: :get%>
+<%= link_to 'Back', @image.category %>

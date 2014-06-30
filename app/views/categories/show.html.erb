@@ -6,10 +6,33 @@
 
 <p>
   <strong>Parent:</strong>
-  <% if @category.parent %>
-	  <%= @category.parent.name %><%= " (#{@category.parent.height})" %>
-  <% end %>
+	  <% if @category.parent %>
+		  <%= @category.parent.name %><%= " (#{@category.parent.height})" %>
+	  <% else %>
+	  	<span>root</span>
+	  <% end %>
 </p>
+<%  unless @category.children.empty? %>
+	<strong>Children Categories:</strong>
+	<% @category.children.each do |child| %>
+		<li><%= link_to child.name, child %></li>
+	<% end %>
+<% else %>
+	<span>No children categories</span>
+<% end %>
+
+<br />
+<%  unless @category.images.empty? %>
+	<strong>Images:</strong>
+	<% @category.images.each do |image| %>
+		<li><%= link_to image.name, image %></li>
+	<% end %>
+<% else %>
+	<span>No images</span>
+<% end %>
+
+<br />
+<br />
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

@@ -10,10 +10,13 @@ class ImagesController < ApplicationController
 		@image = Image.new
 	end
 
+	def show
+	end
+
   def create
     @image = Image.new(image_params)
     if @image.save
-      redirect_to images_path, notice: 'Image was successfully created.'
+      redirect_to @image.category, notice: 'Image was successfully created.'
      else
        render action: 'new'
     end
@@ -26,12 +29,20 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def download
+	@image = Image.find(params[:id])
+
+	send_file(Paperclip.io_adapters.for(@image.avatar).path, 
+		:type => @image.avatar_content_type, 
+		:disposition => "attachment", 
+		:filename => @image.name)
+end
 
   private
     def set_image
       @image = Image.find(params[:id])
     end
   def image_params
-    params.require(:image).permit(:avatar, :name)
+    params.require(:image).permit(:avatar, :name, :category_id)
   end
 end

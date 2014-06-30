@@ -55,10 +55,4 @@ gem 'aws-sdk'
 # User authentication and sessions control gem
 gem 'devise'
 
-#Twitter bootstrap
-group :production do
- gem 'libv8', '~> 3.11.8.3'
- gem 'therubyracer', :platform => :ruby
-end
-gem "less-rails"
-gem "twitter-bootstrap-rails"
+

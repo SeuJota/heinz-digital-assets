@@ -5,21 +5,19 @@ class Category < ActiveRecord::Base
 	has_many :images
 
 	validates :name, presence: true
-	friendly_id :slug_candidates, use: :slugged
+	friendly_id :name, use: :slugged
 
-  # Try building a slug based on the following fields in
-  # increasing order of specificity.
-  def slug_candidates
-    [
-      :name,
-      [:name, self.parent.name],
-    ]
-  end
+	before_save :slug_check
+
 	def ancestors
 		if self.parent
 			return self.parent.ancestors << self
 		else
 			return [self]
 		end
+	end
+
+	def slug_check
+		self.slug += self.parent.name unless Category.where(slug: self.slug).empty?
 	end
 end

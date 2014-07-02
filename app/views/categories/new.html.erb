@@ -2,4 +2,8 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', nested_category_path(Category.find(@parent)) %>
+<% if @parent %>
+	<%= link_to 'Back', nested_category_path(Category.find(@parent)) %>
+<% else %>
+	<%= link_to 'Back', categories_path %>
+<% end %>

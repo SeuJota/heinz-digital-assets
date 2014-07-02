@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
 
 	def new
 		@image = Image.new
+		@category = params[:id]
 	end
 
 	def show
@@ -29,13 +30,14 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def download
 	@image = Image.find(params[:id])
 
 	send_file(Paperclip.io_adapters.for(@image.avatar).path, 
 		:type => @image.avatar_content_type, 
 		:disposition => "attachment", 
-		:filename => @image.name)
+		:filename => @image.name+"_hd")
 end
 
   private

@@ -6,7 +6,7 @@
 		</div>
   <div class="field">
     <%= form.label :parent %><br>
-    <%= form.collection_select(:category_id, Category.order(:id),:id,:name, include_blank: true)%>
+    <%= form.collection_select(:category_id, Category.order(:id),:id,:name, include_blank: true , selected: @category )%>
   </div>
 		<li>  
 			<%= form.label :avatar, "Image" %>  

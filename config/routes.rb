@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :images do 
-  	get :download, on: :member 
-  end
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-devise_for :users
-  devise_scope :user do
-    root :to => 'categories#index'
+resources :images do 
+	get :download, on: :member 
 end
+
+devise_for :users
+devise_scope :user do
+	root :to => 'categories#index'
+end
+  resources :categories, only: [:index, :new, :create]
+  resources :categories, path: "", except: [:index, :new, :create]
+  get '*id', to: 'categories#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

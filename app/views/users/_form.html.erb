@@ -1,0 +1,19 @@
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.full_messages.any? %>
+		<% @user.errors.full_messages.each do |error_message| %>
+		<%= error_message if @user.errors.full_messages.first == error_message %> <br />
+	<% end %>
+	<% end %>
+	<div class="field">
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+	<%= button_to "Destroy", user_path(id: @user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

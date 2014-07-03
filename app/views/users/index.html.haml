@@ -1,0 +1,18 @@
+%h1 Users
+
+= link_to "All Users", :action => "users_admin"
+|
+= link_to "Users awaiting approval", :action => "users_admin", :approved => "false"
+
+%table
+    - @users.each do |user|
+        %tr
+            %td=user.name
+            %td= user.email
+            %td= user.approved 
+            - if user.approved
+                %td= link_to "Disapprove" , disapproved_path(id: user.id), method: :put
+            - else
+                %td= link_to "Approve" , approved_path(id: user.id), method: :put
+            %td= link_to "Edit", edit_user_path(id: user.id)
+            %td= link_to "Destroy", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }

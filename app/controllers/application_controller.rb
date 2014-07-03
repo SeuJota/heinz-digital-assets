@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
+
 	protected
 
 	  def configure_devise_permitted_parameters
-	    registration_params = [:name, :email, :password, :password_confirmation]
+	    registration_params = [:name, :email, :password, :password_confirmation, :approved, :admin]
 
 	    if params[:action] == 'update'
 	      devise_parameter_sanitizer.for(:account_update) { 
@@ -19,4 +20,5 @@ class ApplicationController < ActionController::Base
 	      }
 	    end
 	  end
+
 end

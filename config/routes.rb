@@ -11,6 +11,8 @@ end
 get 'users' => 'users#users_admin', as: :users
 put 'users/:id/approved' => 'users#approved', as: :approved
 put 'users/:id/disapproved' => 'users#disapproved', as: :disapproved
+put 'users/:id/set_admin' => 'users#set_admin', as: :set_admin
+put 'users/:id/unset_admin' => 'users#unset_admin', as: :unset_admin
 resources :users, only: [:show, :edit, :update, :destroy]
 
 

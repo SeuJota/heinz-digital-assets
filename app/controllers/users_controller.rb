@@ -1,18 +1,17 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_user, only: [:show, :edit, :update, :destroy, :approved, :disapproved]
+	before_action :set_user, only: [:show, :edit, :update, :destroy, :approved, :disapproved, :set_admin, :unset_admin]
+	before_action :is_admin?
 
 	def users_admin
-		if current_user.admin?
-			if params[:approved] == "false"
-				@users = User.disapproved.order("updated_at")
-			else
-				@users = User.all.order("updated_at")
-			end
-			render "users/index"
+		if params[:approved] == "false"
+			@users = User.disapproved.order("updated_at DESC")
+		elsif params[:admin] == "true"
+			@users = User.admin
 		else
-			redirect_to root_path
+			@users = User.all.order("updated_at DESC")
 		end
+		render "users/index"
 	end
 
 	def show
@@ -21,9 +20,19 @@ class UsersController < ApplicationController
 	def edit
 	end
 
+	def set_admin
+		@user.update(admin: true)
+		redirect_to users_path(admin: true)
+	end
+
+	def unset_admin
+		@user.update(admin: false)
+		redirect_to users_path()
+	end
+
 	def approved
 		@user.update(approved: true)
-		redirect_to users_path(approved: true)
+		redirect_to users_path()
 	end
 
 	def disapproved
@@ -34,7 +43,7 @@ class UsersController < ApplicationController
 	def update
 		respond_to do |format|
 			if @user.update(user_params)
-				format.html { redirect_to @user, notice: 'User was successfully updated.' }
+				format.html { redirect_to users_path, notice: 'User was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
 			else
 				format.html { render :edit }
@@ -52,6 +61,10 @@ class UsersController < ApplicationController
 	end
 
 	private
+
+	def is_admin?
+		redirect_to root_path unless current_user.admin?
+	end
 	
 	def set_user
 		@user = User.find(params[:id])

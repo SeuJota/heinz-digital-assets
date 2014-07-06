@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
 	:recoverable, :rememberable, :trackable, :validatable
 	validates :name, presence: true
 
-	scope :approved, -> { where(approved: true) }
-	scope :disapproved, -> { where(approved: false) }
+	scope :admin, -> {where(admin: true).order("updated_at DESC") }
+	scope :approved, -> { where(approved: true).order("updated_at DESC") }
+	scope :disapproved, -> { where(approved: false).order("updated_at DESC") }
 
 	def active_for_authentication? 
 		super && approved? 

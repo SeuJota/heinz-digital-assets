@@ -20,7 +20,7 @@
 					<% if current_user.admin? %>
 						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Admin Panel</a>
 					<% else %>
-						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Heinz</a>
+						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Heinz Assets</a>
 					<% end %>
 				</div>
 				<div class="collapse navbar-collapse">
@@ -32,8 +32,8 @@
 					<% end %>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="navbar-text" style="color: #d3d3d3;">Hello <strong><%= current_user.name %></strong>!</li>
-						<li><%= button_to 'Edit profile', edit_user_registration_path, method: :get, :class => 'btn btn-primary navbar-btn', style: "margin-right: 6px;"%></li>
-						<li><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger navbar-btn'  %></li>
+						<li><%= button_to 'Edit profile', edit_user_registration_path, method: :get, :class => 'btn btn-success navbar-btn btn-sm', style: "margin-right: 6px;"%></li>
+						<li><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger navbar-btn btn-sm'  %></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

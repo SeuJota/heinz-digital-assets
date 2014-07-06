@@ -6,10 +6,13 @@ class UsersController < ApplicationController
 	def users_admin
 		if params[:approved] == "false"
 			@users = User.disapproved.order("updated_at DESC")
+			@title = "awaiting approval"
 		elsif params[:admin] == "true"
 			@users = User.admin
+			@title = "admins"
 		else
 			@users = User.all.order("updated_at DESC")
+			@title = "all"
 		end
 		render "users/index"
 	end

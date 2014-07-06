@@ -2,7 +2,7 @@
 	.container
 		%h1 
 			Users
-			%small Admin Panel
+			%small #{@title}
 
 		= link_to "All Users", :action => "users_admin"
 		|
@@ -40,7 +40,7 @@
 						=link_to "Remove" , unset_admin_path(id: user.id), :class => "btn btn-danger btn-sm", disabled: "disabled"
 
 				%td.text-center
-					= link_to "Edit", edit_user_path(id: user.id), :class => "btn btn-info btn-sm edit", remote: true
+					= link_to "Edit", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true
 					= link_to "Destroy", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
 			%tr{class: "edit_form#{user.id}", style: "display: none;"}
 				%td.text-center{colspan: 6} a

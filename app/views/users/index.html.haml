@@ -10,7 +10,7 @@
 		|
 		= link_to "Admins", :action => "users_admin", :admin => "true"
 .container
-	%table{class: "table table-striped table-condensed"}
+	%table{class: "table table-striped table-bordered table-condensed"}
 		%thread
 			%tr
 				%th.text-center #
@@ -26,21 +26,21 @@
 				%td.text-center= user.email
 				%td.text-center
 					- if user.approved && user != current_user
-						= link_to "Disapprove" , disapproved_path(id: user.id), method: :put, :class => "btn btn-warning btn-sm"
+						= link_to "Disapprove" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm"
 					- elsif !user.approved && user != current_user
-						= link_to "Approve" , approved_path(id: user.id), method: :put, :class => "btn btn-success btn-sm"
+						= link_to "Approve" , approved_path(id: user.id), method: :put, :class => "btn btn-primary btn-sm"
 					- else
-						= link_to "Disapprove" , disapproved_path(id: user.id), method: :put, :class => "btn btn-warning btn-sm", disabled: "disabled"
+						= link_to "Disapprove" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
 				%td.text-center
 					- if user.admin && user != current_user
 						=link_to "Remove" , unset_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
 					- elsif !user.admin && user != current_user
-						=link_to "Set Admin" , set_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-success btn-sm"
+						=link_to "Set Admin" , set_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-sm"
 					- else
 						=link_to "Remove" , unset_admin_path(id: user.id), :class => "btn btn-danger btn-sm", disabled: "disabled"
 
 				%td.text-center
-					= link_to "Edit", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true
-					= link_to "Destroy", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
+					= link_to "Edit User", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true
+					= link_to "Delete User", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
 			%tr{class: "edit_form#{user.id}", style: "display: none;"}
 				%td.text-center{colspan: 6} a

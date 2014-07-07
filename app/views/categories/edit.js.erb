@@ -1,0 +1,2 @@
+jQuery(".edit_form<%= @category.id %>").children().html("<%= escape_javascript(render(:partial => 'form')) %>");
+jQuery(".edit_form<%= @category.id %>").fadeIn();

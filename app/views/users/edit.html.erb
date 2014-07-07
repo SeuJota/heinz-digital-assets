@@ -6,7 +6,6 @@
 <div class="container">
 	<%= render 'form' %>
 	<div class="text-center">
-		<%= button_to "Destroy", user_path(id: @user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+		<%= button_to "Destroy", category_path(id: @user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
 	</div>
-	<%= link_to 'Back', users_path, :class => "btn btn-link" %>
 </div>

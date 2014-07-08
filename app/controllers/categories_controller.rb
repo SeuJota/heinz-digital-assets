@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
 
 	def index
-		@categories = Category.all
+		@categories = Category.all.order("height ASC")
 		@title = "All"
 	end
 
@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
 	def new
 		@category = Category.new
 		@parent = params[:id]
+		@name = Category.find(params[:id]).name unless @parent.blank?
 	end
 
 	def edit

@@ -1,0 +1,33 @@
+.jumbotron{style: "padding: 20px;"}
+	.container
+		%ul.list-inline
+			%li
+				%h1 
+					= @category.name + " - " + @category.height.to_s
+					- if @category.parent 
+						%small #{@category.parent.name}
+			%li= link_to 'New Category', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
+			%li= link_to 'New Image', new_image_path(id: @category.id), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
+.container
+	.col-md-12.text-center
+		.col-md-12.text-center
+			- if @category.parent
+				= button_to @category.parent.name, @category.parent, method: :get, class: "btn btn-default btn-sm", style: "margin-bottom: 10px;"
+			- else
+				= button_to "root", categories_path, method: :get, class: "btn btn-default btn-sm", style: "margin-bottom: 10px;"
+		.col-md-12.text-center
+			%p{style: "color: #d3d3d3"} \/
+		.col-md-12.text-center
+			= button_to @category.name, @category, method: :get, class: "btn btn-default btn-sm", style: "margin-bottom: 10px;", disabled: "disabled"
+		.col-md-12.text-center
+			%p{style: "color: #d3d3d3"} \/
+		.col-md-12.text-center
+			%ul.list-inline
+				- @category.children.each do |cat|
+					%li= button_to cat.name, cat, method: :get, class: "btn btn-default btn-sm"
+		.col-md-12.text-center{style: "margin-top: 40px;"}
+			= link_to "Destroy", category_path(id: @category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
+			- if @category.parent
+				= link_to 'Back', nested_category_path(Category.find(@category.parent)),:class => "btn btn-warning"
+			- else
+				= link_to 'Back', categories_path, :class => "btn btn-warning"

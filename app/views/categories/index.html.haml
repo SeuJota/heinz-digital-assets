@@ -1,10 +1,11 @@
-.jumbotron
+.jumbotron{style: "padding: 20px;"}
 	.container
-		%h1 
-			Categories
-			%small #{@title}
 		%ul.list-inline
-			%li= button_to 'New Category', new_category_path, method: :get, :class => "btn btn-primary btn-sm"
+			%li
+				%h1 
+					Categories
+					%small #{@title}
+			%li= button_to 'New Category', new_category_path, method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px"
 
 .container
 	%table{class: "table table-striped table-bordered table-condensed"}
@@ -18,7 +19,7 @@
 		- @categories.each do |cat|
 			%tr
 				%td.text-center= cat.id
-				%td.text-center= cat.name
+				%td.text-center= link_to cat.name, cat, :class => "btn btn-link"
 				%td.text-center= cat.parent ? cat.parent.name : "root"
 				%td.text-center= cat.height
 				%td.text-center

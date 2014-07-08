@@ -18,6 +18,6 @@ class Category < ActiveRecord::Base
 	end
 
 	def slug_check
-		self.slug += self.parent.name unless Category.where(slug: self.slug).empty?
+		self.slug += self.parent.name unless Category.where(slug: self.slug).empty? or self.parent.nil?
 	end
 end

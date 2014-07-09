@@ -9,6 +9,7 @@ class ImagesController < ApplicationController
 	def new
 		@image = Image.new
 		@category = params[:id]
+		@name = Category.find(@category).name unless @category.nil?
 	end
 
 	def show

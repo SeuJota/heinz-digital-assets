@@ -1,20 +1,40 @@
-<h2>Sign up</h2>
+<style> 
+	body {
+		background-color: rgb(238, 238, 238);
+	}
+</style>
+<div class="container text-center">
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "  max-width: 600px; margin: 0 auto; margin-top: 15%;"}) do |f| %>
+		<h2>Register</h2>
+		<%= devise_error_messages! %>
+		<div class="form-group" style="margin-top: 20px;">
+			<%= f.label :email, :class => "col-sm-3 control-label" %>
+			<div class="col-sm-6">
+				<%= f.email_field :email, autofocus: true, :class => "form-control" %>
+			</div>
+		</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+		<div class="form-group">
+			<%= f.label :name, :class => "col-sm-3 control-label" %>
+			<div class="col-sm-6">
+				<%= f.text_field :name, autocomplete: "off", :class => "form-control" %>
+			</div>
+		</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+		<div class="form-group">
+			<%= f.label :password, :class => "col-sm-3 control-label" %>
+			<div class="col-sm-6">
+				<%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+			</div>
+		</div>
 
-   <div><%= f.label :name %><br />
-  <%= f.text_field :name, autocomplete: "off" %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-<%= render "devise/shared/links" %>
+		<div class="form-group">
+			<%= f.label :password_confirmation, :class => "col-sm-3 control-label" %>
+			<div class="col-sm-6">
+				<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+			</div>
+		</div>
+		<%= f.submit "Register", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 10px; width: 330px; margin-left: 135px;"%>
+	  <%= render "devise/shared/links" %>
+	<% end %>
+</div>

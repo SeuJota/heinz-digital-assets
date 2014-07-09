@@ -1,5 +1,9 @@
-<h1>New Image</h1>
+<div class="jumbotron" style="padding: 20px;">
+	<div class="container"> 
+		<h1>New Image<br/><small class="note"> Category: <%= @name ? @name : "root"  %></small></h1>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', nested_category_path(Category.find(@category)) %>
+<div class="container">
+	<%= render 'form' %>
+</div>

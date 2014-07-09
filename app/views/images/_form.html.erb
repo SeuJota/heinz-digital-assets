@@ -1,18 +1,29 @@
-<%= form_for @image, :html => { :multipart => true } do |form| %>  
-	<ol class="formList">  
-		<div class="field">
-			<%= form.label :name %><br>
-			<%= form.text_field :name %>
+<%= form_for @image, :html => { :multipart => true, role: "form", :class => "form-horizontal text-center" } do |f| %>  
+	<% if @image.errors.full_messages.any? %>
+		<% @image.errors.full_messages.each do |error_message| %>
+		<%= error_message if @image.errors.full_messages.first == error_message %> <br />
+	<% end %>
+	<% end %>
+	<div class="form-group text-center">
+		<%= f.label :name, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :name, :class => "form-control" %>
 		</div>
-  <div class="field">
-    <%= form.label :parent %><br>
-    <%= form.collection_select(:category_id, Category.order(:id),:id,:name, include_blank: true , selected: @category )%>
-  </div>
-		<li>  
-			<%= form.label :avatar, "Image" %>  
-			<%= form.file_field :avatar %>  
-		<li>  
-			<%= form.submit "Submit" %>  
-		</li>  
-	</ol>  
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :parent, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.collection_select(:parent_id, Category.order(:id),:id, :name, {prompt: "Select a category", selected: @category}, {class: "form-control"}) %>
+		</div>	
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :image, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.file_field :avatar, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.submit 'Submit', :class => "btn btn-success" %>
+		<%= link_to 'Back', nested_category_path(Category.find(@category)),:class => "btn btn-warning" %>
+	</div>
 <% end %> 

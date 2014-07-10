@@ -5,6 +5,11 @@
 </style>
 <div class="container">
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form", :class => "form-signin", style: "  max-width: 330px;padding: 15px; margin: 0 auto; margin-top: 15%;"}) do |f| %>
+	<div>
+		<p id="alert"><%= alert %></p>
+		<p id="notice"><%= notice %></p>
+		<%= devise_error_messages! %>
+	</div>
 	  <h2>Sign in</h2>
 	  <%= devise_error_messages! %>
 	  <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Email address", style:"margin-bottom: 10px;"  %>

@@ -2,39 +2,35 @@
 	body {
 		background-color: rgb(238, 238, 238);
 	}
+	#error_explanation ul {
+		max-width: 240px;
+		margin: 0 auto;
+		color: #c96353;
+		text-align: left;
+		list-style-type: none;
+	}
+	.form-control {
+		max-width: 300px;
+		margin: 0 auto;
+	}
 </style>
 <div class="container text-center">
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "  max-width: 600px; margin: 0 auto; margin-top: 15%;"}) do |f| %>
-		<h2>Register</h2>
-		<%= devise_error_messages! %>
-		<div class="form-group" style="margin-top: 20px;">
-			<%= f.label :email, :class => "col-sm-3 control-label" %>
-			<div class="col-sm-6">
-				<%= f.email_field :email, autofocus: true, :class => "form-control" %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "padding: 15px; margin: 0 auto; margin-top: 10%;"}) do |f| %>
+		<div>
+			<p id="alert"><%= alert %></p>
+			<p id="notice"><%= notice %></p>
+			<%= devise_error_messages! %>
+		</div>
+		<div>
+			<h2>Register</h2>
+			<%= f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Name", style:"margin-bottom: 10px;"  %>
+			<%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Email address", style:"margin-bottom: 10px;"  %>
+			<%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Password", style:"margin-bottom: 10px;"   %>
+			<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Password confirmation", style:"margin-bottom: 10px;"   %>
+			<div style="margin-bottom: 10px;"> <%= f.submit "Register", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 10px; width: 300px; margin: 0 auto;" %></div>
+			<div style="text-align: left; width: 300px; margin: 0 auto;"> 
+				<%= render "devise/shared/links" %>
 			</div>
 		</div>
-
-		<div class="form-group">
-			<%= f.label :name, :class => "col-sm-3 control-label" %>
-			<div class="col-sm-6">
-				<%= f.text_field :name, autocomplete: "off", :class => "form-control" %>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :password, :class => "col-sm-3 control-label" %>
-			<div class="col-sm-6">
-				<%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :password_confirmation, :class => "col-sm-3 control-label" %>
-			<div class="col-sm-6">
-				<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
-			</div>
-		</div>
-		<%= f.submit "Register", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 10px; width: 330px; margin-left: 135px;"%>
-	  <%= render "devise/shared/links" %>
 	<% end %>
 </div>

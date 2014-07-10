@@ -46,7 +46,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'rails_12factor', group: :production
 
 # Gem to manage Uploads and Connection with S3 Amazon database.
-gem 'paperclip'
+gem "paperclip", "~> 3.5.3"
 gem "cocaine"
 
 # Connection with database and S3 Amazon 

@@ -23,7 +23,7 @@
 				%td.text-center= cat.parent ? cat.parent.name : "root"
 				%td.text-center= cat.height
 				%td.text-center
-					= link_to "Edit", edit_category_path(id: cat.id), :class => "btn btn-primary btn-sm edit" , remote: true
+					= link_to "Edit", edit_category_path(id: cat.id, parent: cat.parent ? cat.parent.id : nil), :class => "btn btn-primary btn-sm edit" , remote: true
 					= link_to "Destroy", category_path(id: cat.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
 			%tr{class: "edit_form#{cat.id}", style: "display: none;"}
 				%td.text-center{colspan: 6} a

@@ -18,6 +18,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def edit
+		@parent = params[:parent]
 	end
 
 	def create

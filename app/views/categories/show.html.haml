@@ -25,6 +25,8 @@
 			%ul.list-inline
 				- @category.children.each do |cat|
 					%li= button_to cat.name, cat, method: :get, class: "btn btn-default btn-sm"
+				- @images.each do |img|
+					%li= button_to img.name, img, method: :get, class: "btn btn-success btn-sm"
 		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
 			= link_to "Destroy", category_path(id: @category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
 			- if @category.parent

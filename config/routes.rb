@@ -6,7 +6,7 @@ end
 
 devise_for :users
 devise_scope :user do
-	root :to => 'devise/sessions#new'
+	root :to => 'categories#index'
 end
 get 'users' => 'users#users_admin', as: :users
 put 'users/:id/approved' => 'users#approved', as: :approved

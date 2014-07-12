@@ -5,7 +5,7 @@
 	#error_explanation ul {
 		max-width: 240px;
 		margin: 0 auto;
-		color: #c96353;
+		color: #b31c24;
 		text-align: left;
 		list-style-type: none;
 	}
@@ -13,9 +13,13 @@
 		max-width: 300px;
 		margin: 0 auto;
 	}
+	.container {
+		margin-top: 50px;
+	}
 </style>
 <div class="container text-center">
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "padding: 15px; margin: 0 auto; margin-top: 10%;"}) do |f| %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "padding: 15px; margin: 0 auto;"}) do |f| %>
+		<%= render partial: "devise/header" %>
 		<div>
 			<p id="alert"><%= alert %></p>
 			<p id="notice"><%= notice %></p>

@@ -9,9 +9,10 @@
 		margin-top: 5%;
 		max-width: 500px;
 	}
+
 </style>
 <div class="container-fluid blues">
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form", :class => "form-signin", style: "  max-width: 330px;padding: 15px; margin: 0 auto;"}) do |f| %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form", :class => "form-signin", style: "  max-width: 330px;padding: 5px; margin: 0 auto;"}) do |f| %>
 	<%= render partial: "devise/header" %>
 	<h3 class="text-center" style="margin-top: 25px; margin-bottom: 25px; font-weight: 700;">	BANCO DE IMAGENS</h3>
 	<div class="text-center" style="color: #b31c24">

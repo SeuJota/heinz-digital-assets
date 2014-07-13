@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
- has_attached_file :avatar
- belongs_to :category
+ has_attached_file :avatar, styles: { medium: "600x600>", thumb: "100x100>" }
+       belongs_to :category
 	validates :name,  presence: true
 
   # Validate the attached image is image/jpg, image/png, etc

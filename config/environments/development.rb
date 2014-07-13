@@ -42,4 +42,6 @@ Rails.application.configure do
     :secret_access_key => "mebiSwg7ZPnFdad92/uw51fLNb4HN3U2DI9VE3h7"
   }
 }
+Paperclip.options[:command_path] = 'C:/imagemagick'
+
 end

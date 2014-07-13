@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 resources :images do 
 	get :download, on: :member 
+	get :download_sd, on: :member 
 end
 
 

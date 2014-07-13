@@ -40,6 +40,14 @@ class ImagesController < ApplicationController
 		:disposition => "attachment", 
 		:filename => @image.name+"_hd")
 end
+def download_sd
+	@image = Image.find(params[:id])
+
+	send_file(Paperclip.io_adapters.for(@image.avatar.url(:medium)).path, 
+		:type => @image.avatar_content_type, 
+		:disposition => "attachment", 
+		:filename => @image.name+"_sd")
+end
 
   private
     def set_image

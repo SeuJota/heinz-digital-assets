@@ -1,6 +1,6 @@
  <br/> <br/>
  <td><%= image_tag @image.avatar.url(:medium) %></td>
  <br/> <br/>
- <%= button_to "Download", download_category_image_path(id: @image.id) , method: :get%>
- <%= button_to "Download SD", download_sd_category_image_path(id: @image.id) , method: :get%>
-<%= link_to 'Back', :back %>
+ <%= button_to "Download", download_image_path(id: @image.id) , method: :get%>
+ <%= button_to "Download SD", download_sd_image_path(id: @image.id) , method: :get%>
+<%= link_to 'Back', @image.category %>

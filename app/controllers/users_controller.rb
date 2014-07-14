@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_user, only: [:show, :edit, :update, :destroy, :approved,
-		 :disapproved, :set_admin, :unset_admin]
+	before_action :set_user, only: [:show, :edit, :update, :destroy, :approved, :disapproved, :set_admin, :unset_admin]
 	before_action :is_admin?
 
 	def users_admin
@@ -42,16 +41,6 @@ class UsersController < ApplicationController
 	def disapproved
 		@user.update(approved: false)
 		redirect_to users_path(approved: false)
-	end
-
-	def public
-		session[:public] = "user" if current_user.admin?
-		redirect_to(:back)
-	end
-
-	def private
-		session[:public] = "admin" if current_user.admin?
-		redirect_to(:back)
 	end
 
 	def update

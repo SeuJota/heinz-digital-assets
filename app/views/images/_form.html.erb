@@ -1,4 +1,4 @@
-<%= form_for [@category, @image] , :html => { :multipart => true, role: "form", :class => "form-horizontal text-center" } do |f| %>  
+<%= form_for @image, :html => { :multipart => true, role: "form", :class => "form-horizontal text-center" } do |f| %>  
 	<% if @image.errors.full_messages.any? %>
 		<% @image.errors.full_messages.each do |error_message| %>
 		<%= error_message if @image.errors.full_messages.first == error_message %> <br />
@@ -13,7 +13,7 @@
 	<div class="form-group text-center">
 		<%= f.label :parent, :class => "col-sm-4 control-label" %>
 		<div class="col-sm-4">
-			<%= f.collection_select(:category_id, Category.order(:id),:id, :name, {prompt: "Select a category", selected: @category.id}, {class: "form-control"}) %>
+			<%= f.collection_select(:category_id, Category.order(:id),:id, :name, {prompt: "Select a category", selected: @category}, {class: "form-control"}) %>
 		</div>	
 	</div>
 	<div class="form-group text-center">

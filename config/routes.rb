@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-resources :images do 
-	get :download, on: :member 
-	get :download_sd, on: :member 
-end
-
 
 devise_for :users
 devise_scope :user do
@@ -14,11 +9,16 @@ put 'users/:id/approved' => 'users#approved', as: :approved
 put 'users/:id/disapproved' => 'users#disapproved', as: :disapproved
 put 'users/:id/set_admin' => 'users#set_admin', as: :set_admin
 put 'users/:id/unset_admin' => 'users#unset_admin', as: :unset_admin
+put 'users/public' => 'users#public', as: :public
+put 'users/private' => 'users#private', as: :private
 resources :users, only: [:show, :edit, :update, :destroy]
 
-
-
-resources :categories, only: [:index, :new, :create]
+resources :categories, only: [:index, :new, :create] do
+	resources :images do 
+		get :download, on: :member 
+		get :download_sd, on: :member 
+	end
+end
 resources :categories, path: "", except: [:index, :new, :create]
 get '*id', to: 'categories#show'
 

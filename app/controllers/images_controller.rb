@@ -4,12 +4,13 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+    @category = Category.friendly.find(params[:category_id])
   end
 
 	def new
 		@image = Image.new
-		@category = params[:id]
-		@name = Category.find(@category).name unless @category.nil?
+		@category = Category.find(params[:category_id])
+		@name = Category.find(@category.id).name unless @category.nil?
 	end
 
 	def show

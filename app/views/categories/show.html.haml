@@ -7,7 +7,7 @@
 					- if @category.parent 
 						%small #{@category.parent.name}
 			%li= link_to 'New Category', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
-			%li= link_to 'New Image', new_image_path(id: @category.id), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
+			%li= link_to 'New Image', new_category_image_path(category_id: @category.id), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
 .container
 	.col-md-12.text-center
 		.col-md-12.text-center
@@ -26,8 +26,10 @@
 				- @category.children.each do |cat|
 					%li= button_to cat.name, cat, method: :get, class: "btn btn-default btn-sm"
 				- @images.each do |img|
-					%li= button_to img.name, img, method: :get, class: "btn btn-success btn-sm"
+					%li= button_to img.name, category_image_path(@category, img), method: :get, class: "btn btn-success btn-sm"
 		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
+			- unless @category.images.empty?
+				= link_to "Images list", category_images_path(@category),:class => "btn btn-info"
 			= link_to "Destroy", category_path(id: @category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
 			- if @category.parent
 				= link_to 'Back', nested_category_path(Category.find(@category.parent)),:class => "btn btn-warning"

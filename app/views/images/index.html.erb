@@ -14,9 +14,9 @@
       <tr>
         <td><%= image.name %></td>
         <td><%= image_tag image.avatar.url(:thumb) %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category_image_path(@category,image) %></td>
+        <td><%= link_to 'Edit', edit_category_image_path(@category,image) %></td>
+        <td><%= link_to 'Destroy', category_image_path(@category, image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Image', new_image_path %>
+<%= link_to 'New Image', new_category_image_path %>

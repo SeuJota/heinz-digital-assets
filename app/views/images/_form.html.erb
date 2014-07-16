@@ -13,7 +13,7 @@
 	<div class="form-group text-center">
 		<%= f.label :parent, :class => "col-sm-4 control-label" %>
 		<div class="col-sm-4">
-			<%= f.collection_select(:category_id, Category.order(:id),:id, :name, {prompt: "Select a category", selected: @category.id}, {class: "form-control"}) %>
+			<%= f.collection_select(:category_id, Category.leafs,:id, :name, {prompt: "Select a category", selected: @category.id}, {class: "form-control"}) %>
 		</div>	
 	</div>
 	<div class="form-group text-center">

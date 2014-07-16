@@ -9,6 +9,13 @@ class Category < ActiveRecord::Base
 
 	before_save :slug_check
 
+	scope :leafs, -> {Category.all.select {|c| c.is_leaf?}}
+
+	def is_leaf?
+		false
+		true if self.children.empty?
+	end
+
 	def ancestors
 		if self.parent
 			return self.parent.ancestors << self

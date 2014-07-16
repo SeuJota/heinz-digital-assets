@@ -1,15 +1,23 @@
 class CategoriesController < ApplicationController
 	before_action :set_category, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
-
+	before_action :is_admin?, only: [:edit, :update, :new, :destroy]
 
 	def index
 		@categories = Category.all.order("height ASC")
 		@title = "All"
+		render "categories/public/index" unless session[:public] == "admin"
 	end
 
 	def show
 		@images = @category.images
+		unless session[:public] == "admin"
+			if category.is_leaf?
+				render "categories/public/fotorama" 
+			else
+				render "categories/public/show" 
+			end	
+		end
 	end
 
 	def new
@@ -58,6 +66,10 @@ class CategoriesController < ApplicationController
 	end
 
 	private
+
+	def is_admin?
+		redirect_to root_path unless current_user.admin?
+	end
 	
 	def set_category
 		@category = Category.friendly.find(params[:id].split("/").last)

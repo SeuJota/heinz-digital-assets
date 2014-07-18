@@ -3,20 +3,22 @@ class ImagesController < ApplicationController
 	before_action :authenticate_user!
 
   def index
-    @images = Image.all
     @category = Category.friendly.find(params[:category_id])
+    @images = @category.images
   end
 
 	def new
 		@image = Image.new
-		@category = Category.find(params[:category_id])
-		@name = Category.find(@category.id).name unless @category.nil?
+		@category = Category.friendly.find(params[:category_id])
+		@name = Category.friendly.find(@category.id).name unless @category.nil?
 	end
 
 	def show
+		 @category = Category.friendly.find(params[:category_id])
 	end
 
   def create
+  	@category = Category.friendly.find(params[:category_id])
     @image = Image.new(image_params)
     if @image.save
       redirect_to @image.category, notice: 'Image was successfully created.'
@@ -26,9 +28,10 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+  	category = @image.category
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to category, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -21,7 +21,9 @@
 					<% if current_user.admin? %>
 						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Admin Panel</a>
 					<% else %>
-						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Heinz Assets</a>
+						<a class="navbar-brand" href="#"style="color: #d3d3d3;">
+							<%= image_tag "heinz_header.png", width: "55px;"%>
+						</a>
 					<% end %>
 				</div>
 				<div class="collapse navbar-collapse">

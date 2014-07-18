@@ -6,8 +6,10 @@
 					= @category.name + " - " + @category.height.to_s
 					- if @category.parent 
 						%small #{@category.parent.name}
-			%li= link_to 'New Category', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
-			%li= link_to 'New Image', new_category_image_path(category_id: @category.id), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
+			- unless @category.is_leaf?
+				%li= link_to 'New Category', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
+			- if @category.is_leaf?
+				%li= link_to 'New Image', new_category_image_path(category_id: @category.slug), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
 .container
 	.col-md-12.text-center
 		.col-md-12.text-center
@@ -17,8 +19,11 @@
 				= button_to "root", categories_path, method: :get, class: "btn btn-default btn-sm", style: "margin-bottom: 10px;"
 		.col-md-12.text-center
 			%p{style: "color: #d3d3d3"} \/
-		.col-md-12.text-center
-			= button_to @category.name, @category, method: :get, class: "btn btn-default btn-sm", style: "margin-bottom: 10px;", disabled: "disabled"
+		.col-md-12.text-center{style: "margin-bottom: 10px;"}
+			= link_to @category.name, @category, method: :get, class: "btn btn-default btn-sm", disabled: "disabled"
+			%p{style: "position: absolute; right: 40%;color: #d3d3d3; bottom: -4px;"} ->
+			- unless @category.images.empty?
+				= link_to "All Images", category_images_path(@category),:class => "btn btn-success btn-sm", style: "position: absolute; right: 25%; display: inline;"
 		.col-md-12.text-center
 			%p{style: "color: #d3d3d3"} \/
 		.col-md-12.text-center
@@ -28,8 +33,6 @@
 				- @images.each do |img|
 					%li= button_to img.name, category_image_path(@category, img), method: :get, class: "btn btn-success btn-sm"
 		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
-			- unless @category.images.empty?
-				= link_to "Images list", category_images_path(@category),:class => "btn btn-info"
 			= link_to "Destroy", category_path(id: @category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
 			- if @category.parent
 				= link_to 'Back', nested_category_path(Category.find(@category.parent)),:class => "btn btn-warning"

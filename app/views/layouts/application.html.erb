@@ -50,6 +50,8 @@
 		</div>
 	<% end %>
 	<%= yield %>
-	<footer class="container text-center"><p>&copy; Heinz Brasil 2014</p> </footer>
+  <% if session[:public] == "admin" %>
+    <footer class="container text-center"><p>&copy; Heinz Brasil 2014</p> </footer>
+  <% end %>
 </body>
 </html>

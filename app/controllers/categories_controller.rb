@@ -12,11 +12,11 @@ class CategoriesController < ApplicationController
 	def show
 		@images = @category.images
 		unless session[:public] == "admin"
-			if category.is_leaf?
-				render "categories/public/fotorama" 
+			if @category.is_leaf?
+				render "categories/public/fotorama"
 			else
-				render "categories/public/show" 
-			end	
+				render "categories/public/show"
+			end
 		end
 	end
 
@@ -70,7 +70,7 @@ class CategoriesController < ApplicationController
 	def is_admin?
 		redirect_to root_path unless current_user.admin?
 	end
-	
+
 	def set_category
 		@category = Category.friendly.find(params[:id].split("/").last)
 	end

@@ -6,7 +6,7 @@
 	webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover; 
+	background-size: cover;
 	background-position: center;
 	width: 296px;
 	height: 136px;
@@ -20,4 +20,28 @@ html {
 	width: 100%;
 	height: 100%;
 	position: relative;
+}
+body {
+	height: 100%;
+}
+.heinz {
+	padding-top: 23%;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	background: url('/assets/heinz_background.png') no-repeat;
+	webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.quero {
+	padding-top: 23%;
+	height: 100%;
+	margin: 0px;
+	background: url('/assets/quero_background.jpg') no-repeat;
+	webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;;
 }

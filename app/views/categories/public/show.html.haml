@@ -1,0 +1,11 @@
+.col-sm-10.heinz.text-center{style: "padding-top: 8%"}
+  = image_tag("heinz_header.png")
+  %ul{style: "padding: 0px; padding-top: 50px; list-style: none;margin-bottom: 50px;"}
+    - @category.children.each do |cat|
+      %li{style: "margin-bottom: 10px;"}= link_to cat.name, cat, style: "font-size: 14pt; font-weight: 700;color: #fff;"
+  - if @category.parent
+    = link_to 'Back', nested_category_path(Category.find(@category.parent)),:class => "btn btn-sucess"
+  - else
+    = link_to 'Back', categories_path, :class => "btn btn-success"
+.col-sm-2.quero.text-center
+  =link_to image_tag("quero_header.png", style: "width: 100%;"), category_path(id: "quero")

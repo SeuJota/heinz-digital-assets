@@ -11,7 +11,7 @@
 body {
 	margin: 0px;
 	background: url('/assets/background_login.jpg') no-repeat center center fixed;
--webkit-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
@@ -24,6 +24,8 @@ body {
 		<%= image_tag "heinz_header.png" %>
 	</div>
 	<%= yield %>
-	<footer class="container text-center"><p>&copy; Heinz Brasil 2014</p> </footer>
+	<% if session[:public] == "admin" %>
+		<footer class="container text-center"><p>&copy; Heinz Brasil 2014</p> </footer>
+	<% end %>
 </body>
 </html>

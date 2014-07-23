@@ -31,6 +31,6 @@
           %li.point{style: "padding: 0px;"}
             .div{style: "max-width: 200px;"}
               %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              = image_tag img.avatar.url(:thumb), style: "border: 1px solid gray"
+              = image_tag img.avatar.url(:thumb), class: "prod"
               .button-hover
                 = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)

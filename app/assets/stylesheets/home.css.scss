@@ -73,10 +73,11 @@ body {
 	margin-left: 5px;
 }
 .prod {
-	border: rgba(240, 240, 240, 0.960784) 10px solid;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	border: rgba(240, 240, 240, 0.960784) 3px solid;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color: white;
 }
 
 .point:hover .button-hover {

@@ -21,9 +21,7 @@
 					<% if current_user.admin? %>
 						<a class="navbar-brand" href="#"style="color: #d3d3d3;">Admin Panel</a>
 					<% else %>
-						<a class="navbar-brand" href="#"style="color: #d3d3d3;">
-							<%= image_tag "heinz_header.png", width: "55px;"%>
-						</a>
+            <%= link_to image_tag("heinz_header.png", width: "55px;"), root_path, :class => "navbar-brand", style:"color: #d3d3d3" %>
 					<% end %>
 				</div>
 				<div class="collapse navbar-collapse">

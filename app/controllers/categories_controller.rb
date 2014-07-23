@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 		@images = @category.images
 		unless session[:public] == "admin"
 			if @category.is_leaf?
-				render "categories/public/fotorama"
+				render "categories/public/shutter"
 			else
 				render "categories/public/show"
 			end

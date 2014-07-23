@@ -69,6 +69,14 @@ body {
 }
 .point {
 	position: relative;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.prod {
+	border: rgba(240, 240, 240, 0.960784) 10px solid;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
 .point:hover .button-hover {
@@ -77,10 +85,13 @@ body {
 
 .point .button-hover {
 	position: absolute;
-	bottom: 1px;
+	bottom: 0px;
 	left: 0px;
 	width: 100%;
 	height: 25px;
 	display: none;
 	background-color: rgba(240, 240, 240, 0.960784);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }

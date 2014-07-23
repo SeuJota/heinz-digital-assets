@@ -3,16 +3,15 @@
     = image_tag("heinz_header.png", width: "250px", style: "margin-bottom: 20px;")
     .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
       %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
-        \\
         - @category.ancestors.each do |cat|
           =link_to cat.name, cat, style: "color: white"
-          \\
+          = image_tag("arrow.png") unless cat == @category.ancestors.last
       %ul.list-inline
         - @images.each do |img|
-          %li.point{style: "padding: 0px; margin-right: 10px;"}
+          %li.point{style: "padding: 0px;"}
             .div{style: "max-width: 200px;"}
               %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              = image_tag img.avatar.url(:thumb), style: "border: 1px solid gray"
+              = image_tag img.avatar.url(:thumb), class: "prod"
               .button-hover
                 = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)
   .col-sm-2.quero.text-center
@@ -24,13 +23,12 @@
     = image_tag("quero_header.png", width: "250px", style: "margin-bottom: 20px;")
     .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
       %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
-        \\
         - @category.ancestors.each do |cat|
           =link_to cat.name, cat, style: "color: white"
-          \\
+          = image_tag("arrow.png") unless cat == @category.ancestors.last
       %ul.list-inline
         - @images.each do |img|
-          %li.point{style: "padding: 0px; margin-right: 0px;"}
+          %li.point{style: "padding: 0px;"}
             .div{style: "max-width: 200px;"}
               %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
               = image_tag img.avatar.url(:thumb), style: "border: 1px solid gray"

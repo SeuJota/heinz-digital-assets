@@ -2,14 +2,13 @@
 	.container
 		%ul.list-inline
 			%li
-				%h1 
-					= @category.name + " - " + @category.height.to_s
-					- if @category.parent 
-						%small #{@category.parent.name}
-			- unless @category.is_leaf?
-				%li= link_to 'New Category', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
+				%h1
+					= @category.name
+					- if @category.parent
+						%small - #{@category.parent.name}
+				%li= link_to 'Nova Categoria', new_category_path(id: @category.id), method: :get, :class => "btn btn-primary btn-sm", style: "margin-left: 30px; margin-bottom: 20px;"
 			- if @category.is_leaf?
-				%li= link_to 'New Image', new_category_image_path(category_id: @category.slug), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
+				%li= link_to 'Nova Imagem', new_category_image_path(category_id: @category.slug), method: :get, :class => "btn btn-info btn-sm", style: "margin-bottom: 20px;"
 .container
 	.col-md-12.text-center
 		.col-md-12.text-center
@@ -33,8 +32,8 @@
 				- @images.each do |img|
 					%li= button_to img.name, category_image_path(@category, img), method: :get, class: "btn btn-success btn-sm"
 		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
-			= link_to "Destroy", category_path(id: @category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
+			= link_to "Destruir", category_path(id: @category), method: :delete, data: { confirm: 'tem certeza?' }, :class => "btn btn-danger"
 			- if @category.parent
-				= link_to 'Back', nested_category_path(Category.find(@category.parent)),:class => "btn btn-warning"
+				= link_to 'Voltar', nested_category_path(Category.find(@category.parent)),:class => "btn btn-warning"
 			- else
-				= link_to 'Back', categories_path, :class => "btn btn-warning"
+				= link_to 'Voltar', categories_path, :class => "btn btn-warning"

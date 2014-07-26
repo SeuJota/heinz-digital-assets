@@ -7,13 +7,13 @@ class UsersController < ApplicationController
 	def users_admin
 		if params[:approved] == "false"
 			@users = User.disapproved.order("updated_at DESC")
-			@title = "awaiting approval"
+			@title = "esperando aprovação"
 		elsif params[:admin] == "true"
 			@users = User.admin
-			@title = "admins"
+			@title = "administradores"
 		else
 			@users = User.all.order("updated_at DESC")
-			@title = "all"
+			@title = "todos"
 		end
 		render "users/index"
 	end
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 	def is_admin?
 		redirect_to root_path unless current_user.admin?
 	end
-	
+
 	def set_user
 		@user = User.find(params[:id])
 	end

@@ -1,4 +1,4 @@
-<style> 
+<style>
 	body {
 		background-color: rgb(238, 238, 238);
 	}
@@ -20,18 +20,18 @@
 		<p id="notice"><%= notice %></p>
 		<%= devise_error_messages! %>
 	</div>
-	  <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Email address", style:"margin-bottom: 10px;"  %>
-	  <%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Password" %>
+	  <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Email", style:"margin-bottom: 10px;"  %>
+	  <%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Senha" %>
 
 	  <% if devise_mapping.rememberable? -%>
 	    <div class="checkbox">
 	    	<label>
-		    	<%= f.check_box :remember_me %> Remember me
+		    	<%= f.check_box :remember_me %> Salvar informações.
 		 </label>
 	    </div>
 	  <% end -%>
 
-	  <%= f.submit "Sign in", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 15px;"%>
+	  <%= f.submit "Login", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 15px;"%>
 	  <%= render "devise/shared/links" %>
 	<% end %>
 </div>

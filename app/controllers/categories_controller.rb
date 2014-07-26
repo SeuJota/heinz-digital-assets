@@ -4,8 +4,16 @@ class CategoriesController < ApplicationController
 	before_action :is_admin?, only: [:edit, :update, :new, :destroy]
 
 	def index
-		@categories = Category.all.order("height ASC")
-		@title = "All"
+		if params[:category] == "Quero"
+			@categories = Category.find_by_name("Quero").children
+			@title = "quero"
+		elsif params[:category] == "Heinz"
+			@categories = Category.find_by_name("Heinz").children
+			@title = "heinz"
+		else
+			@categories = Category.all.order("updated_at DESC")
+			@title = "todas"
+		end
 		render "categories/public/index" unless session[:public] == "admin"
 	end
 

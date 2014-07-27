@@ -19,47 +19,84 @@ html, body {
 	margin: 10px 0 0px 0;
 }
 .heinz {
-	padding-top: 20%;
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	background: url('/assets/heinz_background.jpg') no-repeat;
-	webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  background: #741c23; /* Old browsers */
+  background: -moz-linear-gradient(left, #741c23 1%, #b2282f 51%, #741c23 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(1%,#741c23), color-stop(51%,#b2282f), color-stop(100%,#741c23)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* IE10+ */
+  background: linear-gradient(to right, #741c23 1%,#b2282f 51%,#741c23 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#741c23', endColorstr='#741c23',GradientType=1 ); /* IE6-9 */
+  min-height: 600px;
+  height: 100%;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-shadow:
+   inset 0 0 0 1px rgba(0,0,0,0.1),
+   inset 0 0 0 7px rgba(255,255,255,0.1),
+   inset 0 0 0 8px rgba(0,0,0,0.1);
 }
 .quero {
-	padding-top: 20%;
-	height: 100%;
-	margin: 0px;
-	background: url('/assets/quero_background.jpg') no-repeat;
-	webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;;
+	background: #156f3f; /* Old browsers */
+  background: -moz-linear-gradient(top, #156f3f 1%, #03954a 51%, #156f3f 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#156f3f), color-stop(51%,#03954a), color-stop(100%,#156f3f)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #156f3f 1%,#03954a 51%,#156f3f 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156f3f', endColorstr='#156f3f',GradientType=0 ); /* IE6-9 */
+  min-height: 600px;
+  height: 100%;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.1),
+    inset 0 0 0 7px rgba(255,255,255,0.1),
+    inset 0 0 0 8px rgba(0,0,0,0.1);
 }
 .heinzhd {
-	padding-top: 20%;
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	background: url('/assets/heinz_background_hd.jpg') no-repeat;
-	webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background: #741c23; /* Old browsers */
+  background: -moz-linear-gradient(left, #741c23 1%, #b2282f 51%, #741c23 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(1%,#741c23), color-stop(51%,#b2282f), color-stop(100%,#741c23)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* IE10+ */
+  background: linear-gradient(to right, #741c23 1%,#b2282f 51%,#741c23 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#741c23', endColorstr='#741c23',GradientType=1 ); /* IE6-9 */
+  min-height: 600px;
+  height: 100%;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.1),
+    inset 0 0 0 8px rgba(255,255,255,0.1),
+    inset 0 0 0 9px rgba(0,0,0,0.1);
 }
 .querohd {
-	padding-top: 20%;
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	background: url('/assets/quero_background_hd.jpg') no-repeat;
-	webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  background: #156f3f; /* Old browsers */
+  background: -moz-linear-gradient(top, #156f3f 1%, #03954a 51%, #156f3f 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#156f3f), color-stop(51%,#03954a), color-stop(100%,#156f3f)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #156f3f 1%,#03954a 51%,#156f3f 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156f3f', endColorstr='#156f3f',GradientType=0 ); /* IE6-9 */
+  min-height: 600px;
+  height: 100%;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.1),
+    inset 0 0 0 8px rgba(255,255,255,0.1),
+    inset 0 0 0 9px rgba(0,0,0,0.1);
 }
 .point {
 	position: relative;
@@ -86,4 +123,10 @@ html, body {
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }

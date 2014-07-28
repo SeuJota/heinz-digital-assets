@@ -2,8 +2,8 @@ $(document).on('page:change', function () {
   $(".field_with_errors").addClass("has-error");
   $('.heinzsmall').on('click', function(e) {
     e.preventDefault();
-    $('.heinz').children().fadeOut("fast");
-    $('.querohd').children().fadeOut("fast");
+    $('.heinz').children().toggle();
+    $('.querohd').children().toggle();
     $('.querohd').toggleClass('col-sm-10 col-sm-2');
     $('.heinz').toggleClass('col-sm-2 col-sm-10');
     setTimeout(function() {
@@ -12,8 +12,8 @@ $(document).on('page:change', function () {
   });
   $('.querosmall').on('click', function(e) {
     e.preventDefault();
-    $('.heinzhd').children().fadeOut("fast");
-    $('.quero').children().fadeOut("fast");
+    $('.heinzhd').children().toggle();
+    $('.quero').children().toggle();
     $('.quero').toggleClass('col-sm-10 col-sm-2');
     $('.heinzhd').toggleClass('col-sm-2 col-sm-10');
     setTimeout(function() {
@@ -22,8 +22,8 @@ $(document).on('page:change', function () {
   });
   $('.queroopt').on('click', function(e) {
     e.preventDefault();
-    $('.heinzhd').children().fadeOut("fast");
-    $('.querohd').children().fadeOut("fast");
+    $('.heinzhd').children().toggle();
+    $('.querohd').children().toggle();
     $('.querohd').toggleClass('col-sm-6 col-sm-10');
     $('.heinzhd').toggleClass('col-sm-6 col-sm-2');
     setTimeout(function() {
@@ -32,8 +32,8 @@ $(document).on('page:change', function () {
   });
   $('.heinzopt').on('click', function(e) {
     e.preventDefault();
-    $('.heinzhd').children().fadeOut("fast");
-    $('.querohd').children().fadeOut("fast");
+    $('.heinzhd').children().toggle();
+    $('.querohd').children().toggle();
     $('.querohd').toggleClass('col-sm-6 col-sm-2');
     $('.heinzhd').toggleClass('col-sm-6 col-sm-10');
     setTimeout(function() {

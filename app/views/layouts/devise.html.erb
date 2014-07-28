@@ -9,18 +9,23 @@
 <style>
 
 body {
-	margin: 0px;
-	background: url('/assets/background_login.jpg') no-repeat center center fixed;
-	-webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  background-size: 100% 100%;
+	background: #fefefd; /* Old browsers */
+	background: -moz-linear-gradient(left, #fefefd 0%, #ebe8c3 50%, #fefefd 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fefefd), color-stop(50%,#ebe8c3), color-stop(100%,#fefefd)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #fefefd 0%,#ebe8c3 50%,#fefefd 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #fefefd 0%,#ebe8c3 50%,#fefefd 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #fefefd 0%,#ebe8c3 50%,#fefefd 100%); /* IE10+ */
+	background: linear-gradient(to right, #fefefd 0%,#ebe8c3 50%,#fefefd 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', endColorstr='#fefefd',GradientType=1 ); /* IE6-9 */
+	min-height: 300px;
+	max-height: 500px;
+	height: 100%;
+	width: 100%;
 }
  </style>
 </head>
 <body>
 	<div id="preloader">
-		<%= image_tag "background_login.jpg" %>
 		<%= image_tag "heinz_header.png" %>
 	</div>
 	<%= yield %>

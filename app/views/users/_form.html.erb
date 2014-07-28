@@ -17,6 +17,30 @@
 		</div>
 	</div>
 	<div class="form-group text-center">
+		<%= f.label :empresa, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :company, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :departamento, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :area, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :endereço, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :address, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :telefone, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :phone, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
 		<%= f.submit 'Atualizar', :class => "btn btn-success" %>
 		<%= link_to "Cancelar", "", :class => "btn btn-primary cancel" %>
 	</div>

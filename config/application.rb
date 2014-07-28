@@ -21,7 +21,7 @@ module HeinzDigitalAssets
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
-    config.i18n.default_locale = :'pt-BR'
-    config.i18n.locale = :'pt-BR'
+    config.i18n.default_locale = :'en'
+    config.i18n.locale = :'en'
   end
 end

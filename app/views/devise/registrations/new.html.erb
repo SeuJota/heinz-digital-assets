@@ -20,19 +20,25 @@
 	}
 </style>
 <div class="container-fluid blues text-center">
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "max-width: 330px;padding: 5px; margin: 0 auto;"}) do |f| %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: "form", :class => "form-horizontal", style: "max-width: 900px;padding: 5px; margin: 0 auto;"}) do |f| %>
 		<%= render partial: "devise/header" %>
-		<h3 class="text-center" style="margin-top: 25px; margin-bottom: 20px; font-weight: 700;">Cadastro de usuários</h3>
+		<h3 class="text-center" style="margin-top: 25px; margin-bottom: 30px; font-weight: 700;">Cadastro de usuários</h3>
 		<div class="text=center">
-			<p id="alert"><%= alert %></p>
-			<p id="notice"><%= notice %></p>
 			<%= devise_error_messages! %>
 		</div>
 		<div>
-			<%= f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Nome", style:"margin-bottom: 10px;"  %>
-			<%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Endereço de email", style:"margin-bottom: 10px;"  %>
-			<%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Senha", style:"margin-bottom: 10px;"   %>
-			<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Confirmação de senha", style:"margin-bottom: 10px;"   %>
+			<div class="col-sm-6">
+				<%= f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Nome", style:"margin-bottom: 10px;"  %>
+				<%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Endereço de email", style:"margin-bottom: 10px;"  %>
+				<%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Senha", style:"margin-bottom: 10px;"   %>
+				<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Confirmação de senha", style:"margin-bottom: 10px;"   %>
+			</div>
+			<div class="col-sm-6" style="margin-bottom: 15px;">
+				<%= f.text_field :company, autocomplete: "off", :class => "form-control", placeholder: "Empresa", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :area, autocomplete: "off", :class => "form-control", placeholder: "Departamento", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :address, autocomplete: "off", :class => "form-control", placeholder: "Endereço", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :phone, autocomplete: "off", :class => "form-control", placeholder: "Telefone", style:"margin-bottom: 10px;"   %>
+			</div>
 			<div style="margin-bottom: 10px;"> <%= f.submit "Registrar", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 15px; width: 320px; margin: 0 auto;" %></div>
 			<div style="text-align: left; width: 320px; margin: 0 auto;">
 				<%= render "devise/shared/links" %>

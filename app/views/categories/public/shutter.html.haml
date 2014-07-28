@@ -15,10 +15,10 @@
               .button-hover
                 = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)
   .col-sm-2.quero.text-center{style: "min-height: 700px;"}
-    =link_to image_tag("quero_header.png", style: "width: 100%;",class: "centered"), category_path(id: "quero")
+    =link_to image_tag("quero_header.png", style: "width: 100%;",class: "centered"), category_path(id: "quero"), :class => "querosmall"
 - else
   .col-sm-2.heinz.text-center{style: "min-height: 700px;"}
-    =link_to image_tag("heinz_header.png", style: "width: 100%;",class: "centered"), category_path(id: "heinz")
+    =link_to image_tag("heinz_header.png", style: "width: 100%;",class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
   .col-sm-10.text-center.querohd{style: "padding-top: 9%;min-height: 700px;"}
     = image_tag("quero_header.png", width: "250px", style: "margin-bottom: 20px;")
     .jumbotron{style: "padding: 10px;background-color:transparent !important;"}

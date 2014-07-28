@@ -1,6 +1,13 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div{
+  -webkit-transition: all 500ms ease-in-out 0s;
+  -moz-transition: 	all 500ms ease-in-out 0s;
+  -o-transition: 		all 500ms ease-in-out 0s;
+  transition: 		all 500ms ease-in-out 0s;
+}
 html, body {
   height:100%;
 }

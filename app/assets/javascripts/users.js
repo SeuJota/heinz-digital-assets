@@ -28,7 +28,7 @@ $(document).on('page:change', function () {
     $('.heinzhd').toggleClass('col-sm-6 col-sm-2');
     setTimeout(function() {
       window.location = "/quero"
-    }, 500);
+    }, 400);
   });
   $('.heinzopt').on('click', function(e) {
     e.preventDefault();
@@ -38,6 +38,6 @@ $(document).on('page:change', function () {
     $('.heinzhd').toggleClass('col-sm-6 col-sm-10');
     setTimeout(function() {
       window.location = "/heinz"
-    }, 500);
+    }, 400);
   });
 });

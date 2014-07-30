@@ -39,27 +39,15 @@ class ImagesController < ApplicationController
 
   def download
 		@image = Image.find(params[:id])
+		style = params[:quality].to_sym
+		ending = "_hd"
+		ending = "_md" if style == :medium
+		ending = "_sd" if style == :small
 
-		send_file(Paperclip.io_adapters.for(@image.avatar).path,
+		send_file(Paperclip.io_adapters.for(@image.avatar(style)).path,
 			:type => @image.avatar_content_type,
 			:disposition => "attachment",
-			:filename => @image.name+"_hd")
-	end
-	def download_md
-		@image = Image.find(params[:id])
-
-		send_file(Paperclip.io_adapters.for(@image.avatar.url(:medium)).path,
-			:type => @image.avatar_content_type,
-			:disposition => "attachment",
-			:filename => @image.name+"_md")
-	end
-	def download_sd
-		@image = Image.find(params[:id])
-
-		send_file(Paperclip.io_adapters.for(@image.avatar.url(:small)).path,
-			:type => @image.avatar_content_type,
-			:disposition => "attachment",
-			:filename => @image.name+"_sd")
+			:filename => @image.name+ending)
 	end
 
   private

@@ -16,8 +16,6 @@ resources :users, only: [:show, :edit, :update, :destroy]
 resources :categories, only: [:index, :new, :create] do
 	resources :images do
 		get :download, on: :member
-		get :download_md, on: :member 
-		get :download_sd, on: :member
 	end
 end
 resources :categories, path: "", except: [:index, :new, :create]

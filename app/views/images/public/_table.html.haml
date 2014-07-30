@@ -1,3 +1,25 @@
-= link_to "#{image_tag("download.png")} Alta".html_safe, download_category_image_path(id: @image.id) , method: :get, :class => "btn btn-success"
-= link_to "#{image_tag("download.png")} Média".html_safe, download_md_category_image_path(id: @image.id), method: :get, :class => "btn btn-success"
-= link_to "#{image_tag("download.png")} Baixa".html_safe, download_sd_category_image_path(id: @image.id), method: :get, :class => "btn btn-success"
+= form_tag download_category_image_path, :method => :get do
+  %table{class: "table table-condensed", style: " margin-top: 20px; border-bottom: 1px solid rgba(230,230,230,1);" }
+    %thread
+      %tr{style: "color: rgba(230,230,230,1);"}
+        %th.text-center Download
+        %th.text-center Qualidade
+        %th.text-center Dimensões
+        %th.text-center Tamanho
+      %tr
+        %td.text-center= radio_button_tag(:quality, "small")
+        %td.text-center  Baixa
+        %td.text-center= @image.small_geometry
+        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:small)).size)
+      %tr
+        %td.text-center= radio_button_tag(:quality, "medium")
+        %td.text-center  Média
+        %td.text-center= @image.medium_geometry
+        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:medium)).size)
+      %tr
+        %td.text-center= radio_button_tag(:quality, "original")
+        %td.text-center  Alta
+        %td.text-center= @image.original_geometry
+        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:original)).size)
+  .col-sm-12.text-center
+    = submit_tag "Download", class: "btn btn-default"

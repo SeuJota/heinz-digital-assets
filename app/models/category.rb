@@ -5,15 +5,19 @@ class Category < ActiveRecord::Base
 	has_many :images
 
 	validates :name, presence: true
-	friendly_id :name, use: :slugged
-
-	before_save :slug_check
-
+  friendly_id :slug_candidates, use: :slugged
 	scope :leafs, -> {Category.all.select {|c| c.is_leaf?}}
 
 	def is_leaf?
 		false
 		true if self.children.empty?
+	end
+
+	def slug_candidates
+		[
+			:name,
+			[:name, parent.id]
+		]
 	end
 
 	def ancestors
@@ -22,9 +26,5 @@ class Category < ActiveRecord::Base
 		else
 			return [self]
 		end
-	end
-
-	def slug_check
-		self.slug += self.parent.name unless Category.where(slug: self.slug).empty? or self.parent.nil?
 	end
 end

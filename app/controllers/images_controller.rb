@@ -15,6 +15,7 @@ class ImagesController < ApplicationController
 
 	def show
 		 @category = Category.friendly.find(params[:category_id])
+		render "images/public/show" unless session[:public] == "admin"
 	end
 
   def create
@@ -37,27 +38,35 @@ class ImagesController < ApplicationController
   end
 
   def download
-	@image = Image.find(params[:id])
+		@image = Image.find(params[:id])
 
-	send_file(Paperclip.io_adapters.for(@image.avatar).path, 
-		:type => @image.avatar_content_type, 
-		:disposition => "attachment", 
-		:filename => @image.name+"_hd")
-end
-def download_sd
-	@image = Image.find(params[:id])
+		send_file(Paperclip.io_adapters.for(@image.avatar).path,
+			:type => @image.avatar_content_type,
+			:disposition => "attachment",
+			:filename => @image.name+"_hd")
+	end
+	def download_md
+		@image = Image.find(params[:id])
 
-	send_file(Paperclip.io_adapters.for(@image.avatar.url(:medium)).path, 
-		:type => @image.avatar_content_type, 
-		:disposition => "attachment", 
-		:filename => @image.name+"_sd")
-end
+		send_file(Paperclip.io_adapters.for(@image.avatar.url(:medium)).path,
+			:type => @image.avatar_content_type,
+			:disposition => "attachment",
+			:filename => @image.name+"_md")
+	end
+	def download_sd
+		@image = Image.find(params[:id])
+
+		send_file(Paperclip.io_adapters.for(@image.avatar.url(:small)).path,
+			:type => @image.avatar_content_type,
+			:disposition => "attachment",
+			:filename => @image.name+"_sd")
+	end
 
   private
     def set_image
       @image = Image.find(params[:id])
     end
   def image_params
-    params.require(:image).permit(:avatar, :name, :category_id)
+    params.require(:image).permit(:avatar, :name, :category_id, :code)
   end
 end

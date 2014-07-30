@@ -1,0 +1,3 @@
+= link_to "#{image_tag("download.png")} Alta".html_safe, download_category_image_path(id: @image.id) , method: :get, :class => "btn btn-success"
+= link_to "#{image_tag("download.png")} Média".html_safe, download_md_category_image_path(id: @image.id), method: :get, :class => "btn btn-success"
+= link_to "#{image_tag("download.png")} Baixa".html_safe, download_sd_category_image_path(id: @image.id), method: :get, :class => "btn btn-success"

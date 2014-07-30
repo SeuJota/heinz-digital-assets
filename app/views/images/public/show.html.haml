@@ -1,0 +1,4 @@
+- if @category.ancestors.map{ |c| c.name}.include?("Heinz")
+  = render "images/public/heinz"
+- else
+  = render "images/public/quero"

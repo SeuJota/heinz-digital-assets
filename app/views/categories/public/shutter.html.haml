@@ -11,9 +11,10 @@
           %li.point{style: "padding: 0px;"}
             .div{style: "max-width: 200px;"}
               %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              = image_tag img.avatar.url(:thumb), class: "prod"
-              .button-hover
-                = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)
+              .fuck{style:"display: inline-block; position: relative;"}
+                = image_tag img.avatar.url(:thumb), class: "prod"
+                .button-hover
+                  = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)
   .col-sm-2.quero.text-center{style: "min-height: 700px;"}
     =link_to image_tag("quero_header.png", style: "width: 100%;",class: "centered"), category_path(id: "quero"), :class => "querosmall"
 - else
@@ -31,6 +32,7 @@
           %li.point{style: "padding: 0px;"}
             .div{style: "max-width: 200px;"}
               %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              = image_tag img.avatar.url(:thumb), class: "prod"
-              .button-hover
-                = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)
+              .fuck{style:"display: inline-block; position: relative;"}
+                = image_tag img.avatar.url(:thumb), class: "prod"
+                .button-hover
+                  = link_to image_tag("download.png", class: "download"), category_image_path(@category, img)

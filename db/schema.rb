@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730100306) do
+ActiveRecord::Schema.define(version: 20140730125132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20140730100306) do
     t.string   "original_geometry"
     t.string   "medium_geometry"
     t.string   "small_geometry"
+    t.integer  "original_size"
+    t.integer  "medium_size"
+    t.integer  "small_size"
   end
 
   create_table "users", force: true do |t|

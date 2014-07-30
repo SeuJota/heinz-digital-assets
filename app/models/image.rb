@@ -4,6 +4,17 @@ class Image < ActiveRecord::Base
 	validates :name,  presence: true
 	validates :avatar, presence: true
   after_save :save_geometry
+  after_save :save_image_size
+
+  def save_image_size
+    unless @size_saved
+      self.original_size = Paperclip.io_adapters.for(avatar(:original)).size
+      self.medium_size = Paperclip.io_adapters.for(avatar(:medium)).size
+      self.small_size = Paperclip.io_adapters.for(avatar(:small)).size
+      @size_saved = true
+      self.save
+    end
+  end
 
   def save_geometry
     unless @geometry_saved

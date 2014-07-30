@@ -7,19 +7,19 @@
         %th.text-center Dimensões
         %th.text-center Tamanho
       %tr
-        %td.text-center= radio_button_tag(:quality, "small")
+        %td.text-center= radio_button_tag(:quality, "small", false,class: "radio text-center", style: "display: inline-block;")
         %td.text-center  Baixa
         %td.text-center= @image.small_geometry
-        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:small)).size)
+        %td.text-center= number_to_human_size(@image.small_size)
       %tr
-        %td.text-center= radio_button_tag(:quality, "medium")
+        %td.text-center= radio_button_tag(:quality, "medium", false,class: "radio text-center", style: "display: inline-block;")
         %td.text-center  Média
         %td.text-center= @image.medium_geometry
-        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:medium)).size)
+        %td.text-center= number_to_human_size(@image.medium_size)
       %tr
-        %td.text-center= radio_button_tag(:quality, "original")
+        %td.text-center= radio_button_tag(:quality, "original", true,class: "radio text-center", style: "display: inline-block;")
         %td.text-center  Alta
         %td.text-center= @image.original_geometry
-        %td.text-center= number_to_human_size(Paperclip.io_adapters.for(@image.avatar(:original)).size)
+        %td.text-center= number_to_human_size(@image.original_size)
   .col-sm-12.text-center
     = submit_tag "Download", class: "btn btn-default"

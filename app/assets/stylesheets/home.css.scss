@@ -141,3 +141,12 @@ html, body {
   top: 50%;
   transform: translateY(-50%);
 }
+
+div#preloader {
+  position: absolute;
+  overflow: hidden;
+  left: -9999px;
+  top: -9999px;
+  height: 1px;
+  width: 1px;
+}

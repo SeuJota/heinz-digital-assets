@@ -1,24 +1,12 @@
-.col-sm-2.heinz.text-center{style: "min-height:700px;"}
+.col-sm-2.heinz.text-center
   =link_to image_tag("heinz_header.png", style: "width: 100%;", class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
-.col-sm-10.querohd.text-center{style: "padding-top: 8%; min-height: 700px;"}
+.col-sm-10.querohd.text-center{style: "padding-top: 3%;min-height: 100%;"}
   = image_tag("quero_header.png")
   %h1{style: "color: white; margin-bottom: 15px; margin-top:25px; font-size: 2em;"}
     - @category.ancestors.each do |cat|
       =link_to cat.name, cat, style: "color: white"
       = image_tag("arrow.png") unless cat == @category.ancestors.last
   = image_tag("down_equal.png", style: "margin-bottom: 15px;")
-  %p
-  - if @category.children.count < 6
-    %ul{style: "padding: 0px; list-style: none; margin-bottom: 50px;"}
-      - @category.children.each do |cat|
-        %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 13pt; font-weight: 700;color: #82bc00;"
-  - else
-    .col-md-12.text-center
-      .col-md-6{style: "text-align: right;padding: 0px;"}
-        .col{style: "float:right; text-align: center; width: 215px;"}
-          - @category.children[0..-6].each do |cat|
-            %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 13pt; font-weight: 700;color: #82bc00;"
-      .col-md-6{style: "text-align: left;padding: 0px;"}
-        .col{style: "float:left; text-align: center; width: 215px;"}
-          - @category.children.drop(6).each do |cat|
-            %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 13pt; font-weight: 700;color: #82bc00;"
+  %ul{style: "padding: 0px; list-style: none; margin-bottom: 50px;"}
+    - @category.children.each do |cat|
+      %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 13pt; font-weight: 700;color: #82bc00;"

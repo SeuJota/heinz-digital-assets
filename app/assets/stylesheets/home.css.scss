@@ -1,6 +1,12 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .heinzhd {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
 div{
   -webkit-transition: all 500ms ease-in-out 0s;
   -moz-transition: 	all 500ms ease-in-out 0s;
@@ -81,9 +87,11 @@ html, body {
   background: -ms-linear-gradient(left, #741c23 1%,#b2282f 51%,#741c23 100%); /* IE10+ */
   background: linear-gradient(to right, #741c23 1%,#b2282f 51%,#741c23 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#741c23', endColorstr='#741c23',GradientType=1 ); /* IE6-9 */
-  min-height: 600px;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
   box-sizing:border-box;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -92,6 +100,7 @@ html, body {
     inset 0 0 0 8px rgba(255,255,255,0.1),
     inset 0 0 0 9px rgba(0,0,0,0.1);
 }
+
 .querohd {
   background: #156f3f; /* Old browsers */
   background: -moz-linear-gradient(top, #156f3f 1%, #03954a 51%, #156f3f 100%); /* FF3.6+ */
@@ -101,8 +110,8 @@ html, body {
   background: -ms-linear-gradient(top, #156f3f 1%,#03954a 51%,#156f3f 100%); /* IE10+ */
   background: linear-gradient(to bottom, #156f3f 1%,#03954a 51%,#156f3f 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#156f3f', endColorstr='#156f3f',GradientType=0 ); /* IE6-9 */
-  min-height: 600px;
-  height: 100%;
+  height: auto;
+  min-height: 100% !important;
   width: 100%;
   box-sizing:border-box;
   -moz-box-sizing:border-box;
@@ -114,8 +123,9 @@ html, body {
 }
 .point {
 	position: relative;
-	margin-right: 5px;
-	margin-left: 5px;
+	margin-right:20px;
+	margin-left: 20px;
+  margin-top: 10px;
 }
 .prod {
 	border: rgba(240, 240, 240, 0.960784) 3px solid;

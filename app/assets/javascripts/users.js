@@ -1,4 +1,12 @@
 $(document).on('page:change', function () {
+  setTimeout(function() {
+      $(".quero").height($('.heinzhd').innerHeight());
+      $(".heinz").height($('.querohd').innerHeight());
+  }, 50)
+  $( window ).resize(function() {
+    $(".quero").height($('.heinzhd').innerHeight());
+    $(".heinz").height($('.querohd').innerHeight());
+  });
   $(".field_with_errors").addClass("has-error");
   $('.heinzsmall').on('click', function(e) {
     e.preventDefault();

@@ -1,0 +1,17 @@
+@font-face {
+        font-family: "BRREGULA";
+        src: url(/assets/BRREGULA.tff) format("truetype");
+    }
+
+.cat_quero, .cat_heinz{
+  font-family: "BRREGULA";
+  word-spacing: 0.2ex;
+  letter-spacing: 0.135ex;
+}
+
+.cat_heinz {
+  text-shadow: 0px 1px 1px #3d3d3d;
+}
+.cat_quero {
+  text-shadow: 0px 1px 1px #dfdfdf;
+}

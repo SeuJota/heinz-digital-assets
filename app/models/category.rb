@@ -7,6 +7,7 @@ class Category < ActiveRecord::Base
 	validates :name, presence: true
   friendly_id :slug_candidates, use: :slugged
 	scope :leafs, -> {Category.all.select {|c| c.is_leaf?}}
+	scope :included?, ->(cat) {where("")}
 
 	def is_leaf?
 		false
@@ -25,6 +26,18 @@ class Category < ActiveRecord::Base
 			return self.parent.ancestors << self
 		else
 			return [self]
+		end
+	end
+
+	def children_id
+		unless self.children.blank?
+			list = []
+			self.children.each do |c|
+				list << c.children_id
+			end
+			return list.flatten! << self.id
+		else
+			return [self.id]
 		end
 	end
 end

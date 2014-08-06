@@ -14,6 +14,7 @@ put 'users/private' => 'users#private', as: :private
 resources :users, only: [:show, :edit, :update, :destroy]
 
 resources :categories, only: [:index, :new, :create] do
+	post :search, on: :member
 	resources :images do
 		get :download, on: :member
 	end

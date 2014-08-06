@@ -6,6 +6,12 @@ class Image < ActiveRecord::Base
   after_save :save_geometry
   after_save :save_image_size
 
+  def self.search(query, cat_children)
+    if query.present?
+      where("name @@ :q", q: query).where("category_id IN (?)", cat_children)
+    end
+  end
+
   def save_image_size
     unless @size_saved
       self.original_size = Paperclip.io_adapters.for(avatar(:original)).size

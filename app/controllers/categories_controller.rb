@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	before_action :set_category, only: [:show, :edit, :update, :destroy]
+	before_action :set_category, only: [:show, :edit, :update, :destroy, :search]
 	before_action :authenticate_user!
 	before_action :is_admin?, only: [:edit, :update, :new, :destroy]
 
@@ -71,6 +71,11 @@ class CategoriesController < ApplicationController
 			format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
 			format.json { head :no_content }
 		end
+	end
+
+	def search
+		@images = Image.search(params[:query], @category.children_id)
+		render "categories/public/shutter"
 	end
 
 	private

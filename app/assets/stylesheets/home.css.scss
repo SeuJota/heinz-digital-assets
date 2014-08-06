@@ -1,12 +1,6 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  .heinzhd {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
 div{
   -webkit-transition: all 500ms ease-in-out 0s;
   -moz-transition: 	all 500ms ease-in-out 0s;
@@ -150,6 +144,11 @@ html, body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.search {
+  position: relative;
+  top: 50%;
+  transform: translateY(-80%);
 }
 
 div#preloader {

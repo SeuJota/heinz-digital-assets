@@ -5,12 +5,12 @@
 
 .cat_quero, .cat_heinz{
   font-family: "BRREGULA";
-  word-spacing: 0.2ex;
-  letter-spacing: 0.135ex;
 }
 
 .cat_heinz {
-  text-shadow: 0px 1px 1px #3d3d3d;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+  word-spacing: 0.2ex;
+  letter-spacing: 0.125ex;
 }
 .cat_quero {
   text-shadow: 0px 1px 1px #dfdfdf;

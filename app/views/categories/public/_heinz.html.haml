@@ -7,6 +7,6 @@
   = image_tag("down_equal.png", style: "margin-bottom: 10px;")
   %ul{style: "padding: 0px; padding-top: 0px; list-style: none;margin-bottom: 50px;"}
     - @category.children.each do |cat|
-      %li{style: "margin-bottom: 8px;", class: "cat_heinz"}= link_to cat.name.upcase, cat, style: "font-size: 16pt; color: #faf9f1;"
+      %li{style: "margin-bottom: 8px;", class: "cat_heinz"}= link_to cat.name, cat, style: "font-size: 16pt; color: #faf9f1;"
 .col-sm-2.quero.text-center
   =link_to image_tag("quero_header.png", style: "width: 100%;",class: "centered"), category_path(id: "quero"), :class => "querosmall"

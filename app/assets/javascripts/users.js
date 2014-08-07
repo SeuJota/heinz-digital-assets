@@ -2,7 +2,23 @@ $(document).on('page:change', function () {
   setTimeout(function() {
       $(".quero").height($('.heinzhd').innerHeight());
       $(".heinz").height($('.querohd').innerHeight());
-  }, 50)
+  }, 10)
+  setTimeout(function() {
+      $(".quero").height($('.heinzhd').innerHeight());
+      $(".heinz").height($('.querohd').innerHeight());
+  }, 100)
+  setTimeout(function() {
+      $(".quero").height($('.heinzhd').innerHeight());
+      $(".heinz").height($('.querohd').innerHeight());
+  }, 300)
+  setTimeout(function() {
+      $(".quero").height($('.heinzhd').innerHeight());
+      $(".heinz").height($('.querohd').innerHeight());
+  }, 500)
+  setTimeout(function() {
+      $(".quero").height($('.heinzhd').innerHeight());
+      $(".heinz").height($('.querohd').innerHeight());
+  }, 1000)
   $( window ).resize(function() {
     $(".quero").height($('.heinzhd').innerHeight());
     $(".heinz").height($('.querohd').innerHeight());

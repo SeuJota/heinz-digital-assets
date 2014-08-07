@@ -3,10 +3,14 @@
   .form.col-sm-12.search
     =form_tag(search_category_path(id: Category.find_by_name("Heinz").id)) do
       .text-center
-        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", style: "width: 250px; display: inline-block; height: 30px;"
+        - unless @errorh.blank?
+          %p{style: "color: white;"}= @errorh
+        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", value: @queryh, style: "width: 250px; display: inline-block; height: 30px;"
 .col-sm-6.text-center.quero
   =link_to image_tag("quero_header.png", class: "centered"), category_path(id: "quero"), :class => "queroopt"
   .form.col-sm-12.search
     =form_tag(search_category_path(id: Category.find_by_name("Quero").id)) do
       .text-center
-        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", style: "width: 250px; display: inline-block; height: 30px;"
+        - unless @errorq.blank?
+          %p{style: "color: white;"}= @errorq
+        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", value: @queryq, style: "width: 250px; display: inline-block; height: 30px;"

@@ -24,5 +24,4 @@ default: &default
 development:
   <<: *default
   database: heinz
-  username: Guilherme
-  password: Tolkien15
+  username: guilhermeavila

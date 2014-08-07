@@ -8,6 +8,8 @@ class Category < ActiveRecord::Base
   friendly_id :slug_candidates, use: :slugged
 	scope :leafs, -> {Category.all.select {|c| c.is_leaf?}}
 
+	STABLE = ["Heinz", "Quero"]
+
 	def is_leaf?
 		false
 		true if self.children.empty?

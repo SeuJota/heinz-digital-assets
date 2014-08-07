@@ -79,6 +79,13 @@ class CategoriesController < ApplicationController
 		redirect_to category_image_path(category_id: @image.category, id: @image) if @images.size == 1
 		render "categories/public/shutter" if @images.size > 1
 		if @images.size == 0
+			if @category.id == Category.find_by_name("Heinz").id
+				@errorh = "Nenhum resultado encontrado."
+				@queryh = params[:query]
+			else
+				@errorq = "Nenhum resultado encontrado."
+				@queryq = params[:query]
+			end
 			render "categories/public/index"
 		end
 	end

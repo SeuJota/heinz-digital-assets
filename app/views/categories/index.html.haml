@@ -21,13 +21,23 @@
 				%th.text-center Altura
 				%th.text-center Ações
 		- @categories.each do |cat|
-			%tr
-				%td.text-center= cat.id
-				%td.text-center= link_to cat.name, cat, :class => "btn btn-link"
-				%td.text-center= cat.parent ? cat.parent.name : "root"
-				%td.text-center= cat.height
-				%td.text-center
-					= link_to "Editar", edit_category_path(id: cat.id, parent: cat.parent ? cat.parent.id : nil), :class => "btn btn-primary btn-sm edit" , remote: true
-					= link_to "Destruir", category_path(id: cat.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger btn-sm"
-			%tr{class: "edit_form#{cat.id}", style: "display: none;"}
-				%td.text-center{colspan: 6} a
+			- unless (Category::STABLE.include?(cat.name))
+				%tr
+					%td.text-center= cat.id
+					%td.text-center= link_to cat.name, cat, :class => "btn btn-link"
+					%td.text-center= cat.parent ? cat.parent.name : "root"
+					%td.text-center= cat.height
+					%td.text-center
+						= link_to "Editar", edit_category_path(id: cat.id, parent: cat.parent ? cat.parent.id : nil), :class => "btn btn-primary btn-sm edit" , remote: true
+						= link_to "Destruir", category_path(id: cat.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger btn-sm"
+				%tr{class: "edit_form#{cat.id}", style: "display: none;"}
+					%td.text-center{colspan: 6} a
+			- else
+				%tr
+					%td.text-center= cat.id
+					%td.text-center= link_to cat.name, cat, :class => "btn btn-link"
+					%td.text-center= cat.parent ? cat.parent.name : "root"
+					%td.text-center= cat.height
+					%td.text-center
+						= link_to "Editar", edit_category_path(id: cat.id, parent: cat.parent ? cat.parent.id : nil), :class => "btn btn-primary btn-sm edit" , disabled:   "disabled"
+						= link_to "Destruir", category_path(id: cat.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger btn-sm", disabled:   "disabled"

@@ -20,27 +20,41 @@
 				%th.text-center Admin?
 				%th.text-center Ações
 		- @users.each do |user|
-			%tr
-				%td.text-center= user.id
-				%td.text-center= user.name
-				%td.text-center= user.email
-				%td.text-center
-					- if user.approved && user != current_user
-						= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm"
-					- elsif !user.approved && user != current_user
-						= link_to "Aprovar" , approved_path(id: user.id), method: :put, :class => "btn btn-primary btn-sm"
-					- else
+			- unless User::STABLE.include?(user.email)
+				%tr
+					%td.text-center= user.id
+					%td.text-center= user.name
+					%td.text-center= user.email
+					%td.text-center
+						- if user.approved && user != current_user
+							= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm"
+						- elsif !user.approved && user != current_user
+							= link_to "Aprovar" , approved_path(id: user.id), method: :put, :class => "btn btn-primary btn-sm"
+						- else
+							= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
+					%td.text-center
+						- if user.admin && user != current_user
+							=link_to "Remover" , unset_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
+						- elsif !user.admin && user != current_user
+							=link_to "Admin" , set_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-sm"
+						- else
+							=link_to "Remover" , unset_admin_path(id: user.id), :class => "btn btn-danger btn-sm", disabled: "disabled"
+
+					%td.text-center
+						= link_to "Editar Usuário", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true
+						= link_to "Deletar Usuário", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
+				%tr{class: "edit_form#{user.id}", style: "display: none;"}
+					%td.text-center{colspan: 6} a
+			- else
+				%tr
+					%td.text-center= user.id
+					%td.text-center= user.name
+					%td.text-center= user.email
+					%td.text-center
 						= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
-				%td.text-center
-					- if user.admin && user != current_user
-						=link_to "Remover" , unset_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
-					- elsif !user.admin && user != current_user
-						=link_to "Admin" , set_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-sm"
-					- else
+					%td.text-center
 						=link_to "Remover" , unset_admin_path(id: user.id), :class => "btn btn-danger btn-sm", disabled: "disabled"
 
-				%td.text-center
-					= link_to "Editar Usuário", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true
-					= link_to "Deletar Usuário", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
-			%tr{class: "edit_form#{user.id}", style: "display: none;"}
-				%td.text-center{colspan: 6} a
+					%td.text-center
+						= link_to "Editar Usuário", edit_user_path(id: user.id), :class => "btn btn-primary btn-sm edit", remote: true, disabled: "disabled"
+						= link_to "Deletar Usuário", user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" , disabled: "disabled"

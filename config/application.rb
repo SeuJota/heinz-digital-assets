@@ -20,7 +20,11 @@ module HeinzDigitalAssets
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
-    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    # Precompile additional assets
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.i18n.default_locale = :'en'
     config.i18n.locale = :'en'
   end

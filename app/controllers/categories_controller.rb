@@ -97,7 +97,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def set_category
-		@category = Category.friendly.find(params[:id].split("/").last)
+		@category = Category.friendly.find(params[:id])
 	end
 
 	def category_params

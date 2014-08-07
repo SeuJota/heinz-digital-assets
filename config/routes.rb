@@ -20,7 +20,6 @@ resources :categories, only: [:index, :new, :create] do
 	end
 end
 resources :categories, path: "", except: [:index, :new, :create]
-get '*id', to: 'categories#show'
 
 
 

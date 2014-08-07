@@ -30,20 +30,20 @@ $(document).on('page:change', function () {
   });
   $('.queroopt').on('click', function(e) {
     e.preventDefault();
-    $('.heinzhd').children().toggle();
-    $('.querohd').children().toggle();
-    $('.querohd').toggleClass('col-sm-6 col-sm-10');
-    $('.heinzhd').toggleClass('col-sm-6 col-sm-2');
+    $('.heinz').children().toggle();
+    $('.quero').children().toggle();
+    $('.quero').toggleClass('col-sm-6 col-sm-10');
+    $('.heinz').toggleClass('col-sm-6 col-sm-2');
     setTimeout(function() {
       window.location = "/quero"
     }, 400);
   });
   $('.heinzopt').on('click', function(e) {
     e.preventDefault();
-    $('.heinzhd').children().toggle();
-    $('.querohd').children().toggle();
-    $('.querohd').toggleClass('col-sm-6 col-sm-2');
-    $('.heinzhd').toggleClass('col-sm-6 col-sm-10');
+    $('.heinz').children().toggle();
+    $('.quero').children().toggle();
+    $('.quero').toggleClass('col-sm-6 col-sm-2');
+    $('.heinz').toggleClass('col-sm-6 col-sm-10');
     setTimeout(function() {
       window.location = "/heinz"
     }, 400);

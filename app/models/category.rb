@@ -7,7 +7,6 @@ class Category < ActiveRecord::Base
 	validates :name, presence: true
   friendly_id :slug_candidates, use: :slugged
 	scope :leafs, -> {Category.all.select {|c| c.is_leaf?}}
-	scope :included?, ->(cat) {where("")}
 
 	def is_leaf?
 		false

@@ -75,7 +75,12 @@ class CategoriesController < ApplicationController
 
 	def search
 		@images = Image.search(params[:query], @category.children_id)
-		render "categories/public/shutter"
+		@image = Image.find(@images[0].id) unless @images[0].nil?
+		redirect_to category_image_path(category_id: @image.category, id: @image) if @images.size == 1
+		render "categories/public/shutter" if @images.size > 1
+		if @images.size == 0
+			render "categories/public/index"
+		end
 	end
 
 	private

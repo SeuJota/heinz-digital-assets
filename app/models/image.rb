@@ -8,7 +8,11 @@ class Image < ActiveRecord::Base
 
   def self.search(query, cat_children)
     if query.present?
-      where("name @@ :q", q: query).where("category_id IN (?)", cat_children)
+      if query.is_number?
+        return where("code = :c", c: query)
+      else
+        where("name @@ :q", q: query).where("category_id IN (?)", cat_children)
+      end
     end
   end
 
@@ -38,5 +42,10 @@ class Image < ActiveRecord::Base
     rescue
       nil
     end
+  end
+end
+class String
+  def is_number?
+    true if Float(self) rescue false
   end
 end

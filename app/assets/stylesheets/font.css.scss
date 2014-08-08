@@ -1,18 +1,23 @@
 @font-face {
-	font-family: "BRREGULA";
-	src: font-url("/assets/BRREGULA.tff") format("truetype");
+font-family: 'BRREGULA';
+src:font-url('BRREGULA.TTF') format('truetype');
+font-weight: normal;
+font-style: normal;
 }
-
-
-.cat_quero, .cat_heinz{
-  font-family: "BRREGULA";
+@font-face {
+font-family: 'Androgyne_TB';
+src:font-url('Androgyne_TB.otf') format('truetype');
+font-weight: normal;
+font-style: normal;
 }
 
 .cat_heinz {
+  font-family: "BRREGULA";
   text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
   word-spacing: 0.2ex;
   letter-spacing: 0.14ex;
 }
 .cat_quero {
+  font-family: "Androgyne_TB";
   text-shadow: 0px 1px 1px #dfdfdf;
 }

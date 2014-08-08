@@ -28,9 +28,9 @@
 		.col-md-12.text-center
 			%ul.list-inline
 				- @category.children.each do |cat|
-					%li= button_to cat.name, cat, method: :get, class: "btn btn-default btn-sm"
+					%li= button_to cat.name, cat, method: :get, class: "btn btn-default btn-sm", style: "margin-top: 10px;"
 				- @images.each do |img|
-					%li= button_to img.name, category_image_path(@category, img), method: :get, class: "btn btn-success btn-sm"
+					%li= button_to img.name, category_image_path(@category, img), method: :get, class: "btn btn-success btn-sm", style: "margin-top: 10px;"
 		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
 			- unless Category::STABLE.include?(@category.name)
 				= link_to "Destruir", category_path(id: @category), method: :delete, data: { confirm: 'tem certeza?' }, :class => "btn btn-danger"

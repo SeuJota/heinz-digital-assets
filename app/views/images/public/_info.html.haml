@@ -1,0 +1,56 @@
+.div{style: "margin-top: 30px;color:white;"} 
+	%h3{style: "letter-spacing: 1px;" }
+		Informações do produto.
+.div{style: "margin-top: 20px;"}
+	%table{class: "table table-condensed", style: " margin-top: 20px; max-width: 350px; margin: auto; margin-top: 30px;" }
+		%thread
+			%tr
+				%td.text-center Nome
+				%td.text-center{style: "color: white;"}= @image.name
+			%tr
+				%td.text-center Código de Produto
+				%td.text-center{style: "color: white;"}= @image.code
+			%tr
+				%td.text-center UPC Code
+				%td.text-center{style: "color: white;"}= @image.upc
+			%tr
+				%td.text-center Dimensões da unidade
+				%td.text-center{style: "color: white;"}= @image.dim_unit
+			%tr
+				%td.text-center Peso da unidade
+				%td.text-center{style: "color: white;"}= @image.weight_unit
+			%tr
+				%td.text-center Unidades por caixa
+				%td.text-center{style: "color: white;"}= @image.box_unit
+			%tr
+				%td.text-center Dimensões da caixa
+				%td.text-center{style: "color: white;"}= @image.dim_box
+			%tr
+				%td.text-center Caixas por pallet
+				%td.text-center{style: "color: white;"}= @image.box_pallet
+			%tr
+				%td.text-center{colspan: "2", rowspan: "2" ,style: "color: white;letter-spacing: 0.6px;"}= @image.description
+
+/ <div>
+/ 	<h2>Informações do produto.</h1>
+/ </div>
+/ <div style="margin-top: 20px;">
+/ 	<p style="line-height: 1.6; text-align: center; margin: auto;">
+/ 	Nome: <b><%= @image.name %></b> <br />
+/ 	Código de Produto: <b><%= @image.code %></b><br />
+/ 	UPC Code: <b><%= @image.upc %></b><br />
+/ 	Dimensões da unidade: <b><%= @image.dim_unit %></b><br />
+/ 	Peso da unidade: <b><%= @image.weight_unit %></b><br />
+/ 	Unidades por caixa: <b><%= @image.box_unit %></b><br />
+/ 	Dimensões da caixa: <b><%= @image.dim_box %></b><br />
+/ 	Peso da caixa: <b><%= @image.weight_box %></b><br />
+/ 	Caixas pro pallet: <b><%= @image.box_pallet %></b><br />
+/ 	Descrição do produto: <b><%= @image.description %></b><br />
+
+/ 	</p>
+/ </div>
+/ <style>
+/ 	h2,b {
+/ 		color: white;
+/ 	}
+/ </style>

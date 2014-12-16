@@ -5,9 +5,21 @@
 	<% end %>
 	<% end %>
 	<div class="form-group text-center">
-		<%= f.label :name, :class => "col-sm-4 control-label" %>
+		<%= f.label :nome, :class => "col-sm-4 control-label" %>
 		<div class="col-sm-4">
 			<%= f.text_field :name, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :categoria, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.collection_select(:category_id, Category.leafs,:id, :name, {prompt: "Select a category", selected: @category.id}, {class: "form-control"}) %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :imagem, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.file_field :avatar, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="form-group text-center">
@@ -17,21 +29,57 @@
 		</div>
 	</div>
 	<div class="form-group text-center">
-		<%= f.label :parent, :class => "col-sm-4 control-label" %>
+		<%= f.label "UPC code", :class => "col-sm-4 control-label" %>
 		<div class="col-sm-4">
-			<%= f.collection_select(:category_id, Category.leafs,:id, :name, {prompt: "Select a category", selected: @category.id}, {class: "form-control"}) %>
+			<%= f.text_field :upc, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="form-group text-center">
-		<%= f.label :image, :class => "col-sm-4 control-label" %>
+		<%= f.label :dimensões_da_unidade, :class => "col-sm-4 control-label" %>
 		<div class="col-sm-4">
-			<%= f.file_field :avatar, :class => "form-control" %>
+			<%= f.text_field :dim_unit, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="form-group text-center">
-		<%= f.submit 'Submit', :class => "btn btn-success" %>
+		<%= f.label :peso_da_unidade, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :weight_unit, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :unidades_por_caixa, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :box_unit, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :dimensões_da_caixa, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :dim_box, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :peso_da_caixa, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :weight_box, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :caixas_por_paller, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_field :box_pallet, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.label :descrição_produto, :class => "col-sm-4 control-label" %>
+		<div class="col-sm-4">
+			<%= f.text_area :description, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group text-center">
+		<%= f.submit 'Atualizar', :class => "btn btn-success" %>
 		<% unless @category.nil? %>
-			<%= link_to 'Back', nested_category_path(Category.find(@category)),:class => "btn btn-warning" %>
+			<%= link_to 'Voltar', category_images_path(@category),:class => "btn btn-warning" %>
 		<% end %>
 	</div>
 <% end %>

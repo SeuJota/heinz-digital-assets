@@ -7,10 +7,12 @@
 					%small #{@category.name}
 .container
 	.col-md-12.text-center
-		.col-md-12.text-center
+		.col-md-6.text-center
 			= image_tag @image.avatar.url(:show), style: "border: 1px solid gray"
-		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
+		.col-md-6.text-center
+			= render 'info'
+		.col-md-12.text-center{style: "margin-top: 50px; margin-bottom: 10px;"}
 			= link_to "Download", download_category_image_path(id: @image.id) , method: :get, :class => "btn btn-success"
-		.col-md-12.text-center{style: "margin-top: 20px; margin-bottom: 10px;"}
-			= link_to "Destroy", category_image_path(@category, @image), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
-			= link_to 'Back', "javascript:history.back()", :class => "btn btn-warning"
+			= link_to "Editar", edit_category_image_path(id: @image.id), :class => "btn btn-primary edit"
+			= link_to "Destruir", category_image_path(@category, @image), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger"
+			= link_to 'Voltar', "javascript:history.back()", :class => "btn btn-warning"

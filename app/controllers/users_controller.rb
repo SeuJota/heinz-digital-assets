@@ -85,7 +85,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		registration_params = [:name, :email, :password, :password_confirmation, :approved, :admin, :area, :address, :phone, :company]
+		registration_params = [:name, :email, :password, :password_confirmation, :approved, :admin, :area, :address, :phone, :company, :cnpj, :work, :profile]
 		params.require(:user).permit(registration_params)
 	end
 end

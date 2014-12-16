@@ -1,25 +1,17 @@
 = form_tag download_category_image_path, :method => :get do
-  %table{class: "table table-condensed", style: " margin-top: 20px; border-bottom: 1px solid rgba(230,230,230,1);" }
+  %table{class: "table table-condensed", style: " margin-top: 0px; border-bottom: 1px solid rgba(230,230,230,1); max-width: 350px; margin: auto; margin-top: 15px;" }
     %thread
-      %tr{style: "color: rgba(230,230,230,1);"}
-        %th.text-center Download
-        %th.text-center Qualidade
-        %th.text-center Dimensões
-        %th.text-center Tamanho
       %tr
-        %td.text-center= radio_button_tag(:quality, "small", false,class: "radio text-center", style: "display: inline-block;")
-        %td.text-center  Baixa
-        %td.text-center= @image.small_geometry
-        %td.text-center= number_to_human_size(@image.small_size)
+        %td.text-center
+          = radio_button_tag(:quality, "small", false,class: "radio text-center", style: "display: inline-block;")
+          %p{style: "color: white;letter-spacing: 0.6px;" }Baixa
+        %td.text-center
+          = radio_button_tag(:quality, "medium", false,class: "radio text-center", style: "display: inline-block;")
+          %p{style: "color: white;letter-spacing: 0.6px;" }Média
+        %td.text-center
+          = radio_button_tag(:quality, "original", true,class: "radio text-center", style: "display: inline-block;")
+          %p{style: "color: white;letter-spacing: 0.6px;" }Alta
+        / %td.text-center= @image.small_geometry
       %tr
-        %td.text-center= radio_button_tag(:quality, "medium", false,class: "radio text-center", style: "display: inline-block;")
-        %td.text-center  Média
-        %td.text-center= @image.medium_geometry
-        %td.text-center= number_to_human_size(@image.medium_size)
-      %tr
-        %td.text-center= radio_button_tag(:quality, "original", true,class: "radio text-center", style: "display: inline-block;")
-        %td.text-center  Alta
-        %td.text-center= @image.original_geometry
-        %td.text-center= number_to_human_size(@image.original_size)
-  .col-sm-12.text-center
-    = submit_tag "Download", class: "btn btn-default"
+        %td.text-center{colspan: "3"}
+          = submit_tag "Download", class: "btn btn-default btn-sm"

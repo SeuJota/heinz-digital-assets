@@ -28,16 +28,24 @@
 		</div>
 		<div>
 			<div class="col-sm-6">
+				<p>Dados Pessoais</p>
 				<%= f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Nome", style:"margin-bottom: 10px;"  %>
 				<%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Endereço de email", style:"margin-bottom: 10px;"  %>
 				<%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Senha", style:"margin-bottom: 10px;"   %>
 				<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Confirmação de senha", style:"margin-bottom: 10px;"   %>
-			</div>
-			<div class="col-sm-6" style="margin-bottom: 15px;">
-				<%= f.text_field :company, autocomplete: "off", :class => "form-control", placeholder: "Empresa", style:"margin-bottom: 10px;"   %>
-				<%= f.text_field :area, autocomplete: "off", :class => "form-control", placeholder: "Departamento", style:"margin-bottom: 10px;"   %>
-				<%= f.text_field :address, autocomplete: "off", :class => "form-control", placeholder: "Endereço", style:"margin-bottom: 10px;"   %>
+<!-- 				<%= f.text_field :address, autocomplete: "off", :class => "form-control", placeholder: "Endereço", style:"margin-bottom: 10px;"   %> -->
 				<%= f.text_field :phone, autocomplete: "off", :class => "form-control", placeholder: "Telefone", style:"margin-bottom: 10px;"   %>
+
+			</div>
+
+			<div class="col-sm-6" style="margin-bottom: 15px;">
+				<p>Dados Empresariais</p>
+				<%= f.text_field :company, autocomplete: "off", :class => "form-control", placeholder: "Empresa", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :cnpj, autocomplete: "off", :class => "form-control", placeholder: "CNPJ Empresa", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :area, autocomplete: "off", :class => "form-control", placeholder: "Departamento", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :work, autocomplete: "off", :class => "form-control", placeholder: "Cargo", style:"margin-bottom: 10px;"   %>
+				<%= f.select( :profile, [['Funcionário Heinz', 1], ['Cliente', 2], ['Fornecedor', 3]], {} , {:class => "form-control", placeholder: "Perfil de usuário", style:"margin-bottom: 10px;" })  %>
+				
 			</div>
 			<div style="margin-bottom: 10px;"> <%= f.submit "Registrar", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 15px; width: 320px; margin: 0 auto;" %></div>
 			<div style="text-align: left; width: 320px; margin: 0 auto;">

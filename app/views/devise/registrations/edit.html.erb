@@ -35,15 +35,9 @@
 				</div>
 			</div>
 			<div class="form-group text-center">
-				<%= f.label :nome, :class => "col-sm-4 control-label" %>
+				<%= f.label :telefone, :class => "col-sm-4 control-label" %>
 				<div class="col-sm-4">
-					<%= f.text_field :name, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="form-group text-center">
-				<%= f.label :email, :class => "col-sm-4 control-label" %>
-				<div class="col-sm-4">
-					<%= f.text_field :email, :class => "form-control" %>
+					<%= f.text_field :phone, :class => "form-control" %>
 				</div>
 			</div>
 			<div class="form-group text-center">
@@ -53,23 +47,36 @@
 				</div>
 			</div>
 			<div class="form-group text-center">
+				<%= f.label "CNPJ Empresa", :class => "col-sm-4 control-label" %>
+				<div class="col-sm-4">
+					<%= f.text_field :cnpj, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group text-center">
 				<%= f.label :departamento, :class => "col-sm-4 control-label" %>
 				<div class="col-sm-4">
 					<%= f.text_field :area, :class => "form-control" %>
 				</div>
 			</div>
 			<div class="form-group text-center">
+				<%= f.label :cargo, :class => "col-sm-4 control-label" %>
+				<div class="col-sm-4">
+					<%= f.text_field :work, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<%= f.label :perfil, :class => "col-sm-4 control-label" %>
+				<div class="col-sm-4">
+					<%= f.select(:profile, [['Funcionário Heinz', 1], ['Cliente', 2], ['Fornecedor', 3]], {}, {class: "form-control"}) %>
+				</div>
+			</div>
+			<!-- <div class="form-group text-center">
 				<%= f.label :endereço, :class => "col-sm-4 control-label" %>
 				<div class="col-sm-4">
 					<%= f.text_field :address, :class => "form-control" %>
 				</div>
-			</div>
-			<div class="form-group text-center">
-				<%= f.label :telefone, :class => "col-sm-4 control-label" %>
-				<div class="col-sm-4">
-					<%= f.text_field :phone, :class => "form-control" %>
-				</div>
-			</div>
+			</div> -->
+			
 
 
 			<div class="form-group text-center">

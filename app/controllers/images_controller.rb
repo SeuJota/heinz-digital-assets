@@ -28,11 +28,15 @@ class ImagesController < ApplicationController
     end
   end
 
+  def edit
+    @category = @image.category
+  end
+
   def destroy
-  	category = @image.category
+  	@category = @image.category
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to category, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to @category, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -55,6 +59,6 @@ class ImagesController < ApplicationController
       @image = Image.find(params[:id])
     end
   def image_params
-    params.require(:image).permit(:avatar, :name, :category_id, :code)
+    params.require(:image).permit(:avatar, :name, :category_id, :code, :upc, :dim_unit, :weight_unit, :box_unit, :dim_box, :weight_box, :box_pallet, :description)
   end
 end

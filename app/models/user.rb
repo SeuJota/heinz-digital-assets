@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
 	validates :name, presence: true
 	validates :company, presence: true
 	validates :area, presence: true
-	validates :address, presence: true
+	# validates :address, presence: true
 	validates :phone, presence: true
+	validates :cnpj, presence: true
+	validates :work, presence: true
+	validates :profile, presence: true
 
 	scope :admin, -> {where(admin: true).order("updated_at DESC") }
 	scope :approved, -> { where(approved: true).order("updated_at DESC") }
@@ -15,6 +18,17 @@ class User < ActiveRecord::Base
 
 	STABLE = ["guilhermebav@gmail.com", "daniel@lado9.com.br", "renato@lado9.com.br"]
 
+	def active_for_authentication?
+		super && approved?
+	end
+
+	def inactive_message
+		if !approved?
+			:not_approved
+		else
+			super # Use whatever other message
+		end
+	end
 
 	def self.send_reset_password_instructions(attributes={})
 		recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)

@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 		end
 		respond_to do |format|
 			format.html { render "users/index"}
-			format.csv { render text: @users.to_csv }
 			format.xls 
 		end
 		

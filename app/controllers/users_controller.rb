@@ -15,7 +15,12 @@ class UsersController < ApplicationController
 			@users = User.all.order("updated_at DESC")
 			@title = "todos"
 		end
-		render "users/index"
+		respond_to do |format|
+			format.html { render "users/index"}
+			format.csv { render text: @users.to_csv }
+			format.xls 
+		end
+		
 	end
 
 	def show

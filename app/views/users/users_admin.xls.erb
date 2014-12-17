@@ -1,0 +1,24 @@
+<table border="1">
+  <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Empresa</th>
+      <th>CNPJ Empresa</th>
+      <th>Area</th>
+      <th>Cargo</th>
+      <th>Telefone</th>
+  </tr>
+  <% @users.each do |u| %>
+    <tr>
+        <td> <%= u.id%> </td>
+        <td> <%= u.name%> </td>
+        <td> <%= u.email%> </td>
+        <td> <%= u.company%> </td>
+        <td> <%= u.cnpj%> </td>
+        <td> <%= u.area%> </td>
+        <td> <%= u.work%> </td>
+        <td> <%= u.phone%> </td>
+    </tr>
+  <% end %>
+</table>

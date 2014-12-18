@@ -4,6 +4,10 @@ devise_for :users
 devise_scope :user do
 	root :to => 'categories#index'
 end
+
+get 'images/control' => 'images#control', as: :images_control
+get 'images/export' => 'images#export', as: :images_export
+post 'images/import' => 'images#import', as: :images_import
 get 'users' => 'users#users_admin', as: :users
 put 'users/:id/approved' => 'users#approved', as: :approved
 put 'users/:id/disapproved' => 'users#disapproved', as: :disapproved

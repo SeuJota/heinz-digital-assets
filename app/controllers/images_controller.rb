@@ -54,6 +54,21 @@ class ImagesController < ApplicationController
 			:filename => @image.name+ending)
 	end
 
+  def export
+    @images = Image.all.order(:code)
+    respond_to do |format|
+      format.xls 
+    end
+  end
+
+  def import
+    Image.import(params[:file])
+    redirect_to images_control_url, notice: "Produtos importados corretamente."
+  end
+
+  def control
+  end
+
   private
     def set_image
       @image = Image.find(params[:id])

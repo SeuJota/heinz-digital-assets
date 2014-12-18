@@ -1,0 +1,58 @@
+.jumbotron{style: "padding: 20px;"}
+	.container
+		%ul.list-inline
+			%li
+				%h1{style: "font-size: 3.4em"} 
+					Controle de produtos<br />
+					%small Exportação e Importação.
+			%li= button_to 'Download .XLS Produtos', images_export_path(format: "xls"), method: :get, :class => "btn btn-success btn-sm", style: "margin-left: 30px; margin-bottom: 20px"
+			%li= link_to 'Voltar', root_path, :class => "btn btn-warning btn-sm", style: "margin-bottom: 20px;"
+.container
+	.jumbotron.text-center{style: "padding: 10px;"}
+		.h4 
+			Regras<br />
+			%small Edição correta do arquivo .xls
+		%p{style: "font-size: 1.1em; line-height: 1.7em;"} 
+			%i 1- 
+			Os campos da coluna
+			%b ID
+			não devem ser alterados.<br />
+			%i 2- 
+			As 
+			%b duas 
+			primeiras linhas da planilhas
+			%b não
+			devem ser modificadas. Ambas contêm conteúdo lógico para a leitura feita pela aplicação.<br />
+			%i 3- 
+			Os campos 
+			%b Código
+			e 
+			%b UPC Code
+			podem conter apenas
+			%u numerais. 
+			Já os demais aceitam
+			%b quaisquer
+			caracteres.<br />
+			%i 4-
+			A 
+			%b adição
+			de novas linhas 
+			%b não
+			incluí novos produtos nos sistema. O produto (e sua imagem respectiva) devem ser adicionados pela aplicação. <br />
+			%i 5-
+			O arquivo a ser 
+			%u importado
+			deve estar no formato
+			%b .xls
+			padrão Excel 97-2014.
+			
+
+	#notice.text-center{style: "margin-bottom: 20px; color: green;"}
+		= notice
+	= form_tag images_import_path, multipart: true, role: "form", :class => "form-horizontal text-center" do
+		.form-group.text-center
+			= label_tag 'Arquivo .xls', nil, class: 'col-sm-4 control-label'
+			.col-sm-4
+				= file_field_tag :file, :class => "form-control"
+		.form-group.text-center
+			= submit_tag "Importar", :class => "btn btn-default"

@@ -6,6 +6,28 @@ class Image < ActiveRecord::Base
   after_save :save_geometry
   after_save :save_image_size
 
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (3..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      product = find_by_id(row["id"])
+      product.attributes = row.to_hash
+      product.save!
+      logger.debug "+++++++++++++++++++++++++++++++++++++++++++++++"
+      logger.debug row.to_hash
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Roo::Csv.new(file.path, nil, :ignore)
+    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
   def self.search(query, cat_children)
     if query.present?
       if query.is_number?

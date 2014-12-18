@@ -3,19 +3,15 @@ class Image < ActiveRecord::Base
   belongs_to :category
 	validates :name,  presence: true
 	validates :avatar, presence: true
-  after_save :save_geometry
-  after_save :save_image_size
+
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (3..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["id"])
-      product.attributes = row.to_hash
-      product.save!
-      logger.debug "+++++++++++++++++++++++++++++++++++++++++++++++"
-      logger.debug row.to_hash
+      product = Image.find_by_id(row["id"])
+      product.update_attributes(row.to_hash)
     end
   end
 

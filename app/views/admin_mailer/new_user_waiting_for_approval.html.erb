@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Os usuários abaixo estão aguardando autorização para acessar o Catálogo Online.</p>
+    <% User.disapproved.each do |u| %>
+      <li><%= u.name %> - <%= u.company%> / Tel: <%= u.phone %></li>
+    <% end %> 
+
+    <p>Para aprovar os usuários acesse: <%= link_to 'Controle de aprovação', users_url(approved: false) %></p>
+
+    <p>Suporte - HEINZ - Catálogo Online.</p>
+  </body>
+</html>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 devise_for :users
 devise_scope :user do
-	root :to => 'categories#index'
+	root :to => 'devise/sessions#new'
 end
 
 get 'images/control' => 'images#control', as: :images_control

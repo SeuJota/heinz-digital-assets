@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
 	def approved
 		@user.update(approved: true)
+		AdminMailer.user_approved(@user).deliver
 		redirect_to users_path()
 	end
 

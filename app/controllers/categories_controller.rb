@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :is_admin?, only: [:edit, :update, :new, :destroy]
 
+	def root_page
+	end
+
 	def index
 		if params[:category] == "Quero"
 			@categories = Category.find_by_name("Quero").children

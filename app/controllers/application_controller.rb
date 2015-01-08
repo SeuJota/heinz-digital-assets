@@ -35,6 +35,6 @@ protected
 	  	else
 	  		session[:public] = "users"
 	  	end
-	  	root_path
+	  	categories_path
 	end
 end

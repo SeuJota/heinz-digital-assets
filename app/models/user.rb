@@ -12,11 +12,18 @@ class User < ActiveRecord::Base
 	validates :work, presence: true
 	validates :profile, presence: true
 
+	after_create :send_admin_mail
+
 	scope :admin, -> {where(admin: true).order("updated_at DESC") }
 	scope :approved, -> { where(approved: true).order("updated_at DESC") }
 	scope :disapproved, -> { where(approved: false).order("updated_at DESC") }
 
 	STABLE = ["guilhermebav@gmail.com", "daniel@lado9.com.br", "renato@lado9.com.br"]
+
+
+	def send_admin_mail
+		AdminMailer.new_user_waiting_for_approval.deliver
+	end
 
 	def active_for_authentication?
 		super && approved?

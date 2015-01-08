@@ -37,7 +37,7 @@
 			<div class="form-group text-center">
 				<%= f.label :telefone, :class => "col-sm-4 control-label" %>
 				<div class="col-sm-4">
-					<%= f.text_field :phone, :class => "form-control" %>
+					<%= f.text_field :phone, :class => "form-control", :id => "phone" %>
 				</div>
 			</div>
 			<div class="form-group text-center">
@@ -49,7 +49,7 @@
 			<div class="form-group text-center">
 				<%= f.label "CNPJ Empresa", :class => "col-sm-4 control-label" %>
 				<div class="col-sm-4">
-					<%= f.text_field :cnpj, :class => "form-control" %>
+					<%= f.text_field :cnpj, :class => "form-control", :id => "cnpj" %>
 				</div>
 			</div>
 			<div class="form-group text-center">
@@ -95,3 +95,20 @@
 
 	</div>
 </div>
+<script>
+$("#phone").mask("(99) 9999?9-9999");
+
+$("#phone").on("change", function() {
+    var last = $(this).val().substr( $(this).val().indexOf("-") + 1 );
+
+    if( last.length == 3 ) {
+        var move = $(this).val().substr( $(this).val().indexOf("-") - 1, 1 );
+        var lastfour = move + last;
+        var first = $(this).val().substr( 0, 9 );
+
+        $(this).val( first + '-' + lastfour );
+    }
+    console.log("craaaazy");
+});
+$("#cnpj").mask("99.999.999/9999-99");
+</script>

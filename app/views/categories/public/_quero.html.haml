@@ -10,4 +10,4 @@
     = image_tag("down_equal.png", style: "margin-bottom: 15px;")
     %ul{style: "padding: 0px; list-style: none; margin-bottom: 50px;"}
       - @category.children.each do |cat|
-        %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 14pt;color: #82bc00;"
+        %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 14pt;color: #faf9f1; text-rendering: optimizeLegibility; letter-spacing: 1.5px;"

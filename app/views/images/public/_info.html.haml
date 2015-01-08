@@ -1,33 +1,33 @@
 .div{style: "margin-top: 30px;color:white;"} 
 	%h3{style: "letter-spacing: 1px;" }
-		Informações do produto.
+		Informações do Produto
 .div{style: "margin-top: 20px;"}
 	%table{class: "table table-condensed", style: " margin-top: 20px; max-width: 350px; margin: auto; margin-top: 30px;" }
 		%thread
 			%tr
-				%td.text-center Nome
-				%td.text-center{style: "color: white;"}= @image.name
+				%td.text-left{style: "color: white;"} Nome
+				%td.text-center{style: "color: #cacacawhite;"}= @image.name
 			%tr
-				%td.text-center Código de Produto
-				%td.text-center{style: "color: white;"}= @image.code
+				%td.text-left{style: "color: white;"} Código de Produto
+				%td.text-center{style: "color: #cacacawhite;"}= @image.code
 			%tr
-				%td.text-center UPC Code
-				%td.text-center{style: "color: white;"}= @image.upc
+				%td.text-left{style: "color: white;"} UPC Code
+				%td.text-center{style: "color: #cacacawhite;"}= @image.upc
 			%tr
-				%td.text-center Dimensões da unidade
-				%td.text-center{style: "color: white;"}= @image.dim_unit
+				%td.text-left{style: "color: white;"} Dimensões da unidade
+				%td.text-center{style: "color: #cacacawhite;"}= @image.dim_unit
 			%tr
-				%td.text-center Peso da unidade
-				%td.text-center{style: "color: white;"}= @image.weight_unit
+				%td.text-left{style: "color: white;"} Peso da unidade
+				%td.text-center{style: "color: #cacacawhite;"}= @image.weight_unit
 			%tr
-				%td.text-center Unidades por caixa
-				%td.text-center{style: "color: white;"}= @image.box_unit
+				%td.text-left{style: "color: white;"} Unidades por caixa
+				%td.text-center{style: "color: #cacacawhite;"}= @image.box_unit
 			%tr
-				%td.text-center Dimensões da caixa
-				%td.text-center{style: "color: white;"}= @image.dim_box
+				%td.text-left{style: "color: white;"} Dimensões da caixa
+				%td.text-center{style: "color: #cacacawhite;"}= @image.dim_box
 			%tr
-				%td.text-center Caixas por pallet
-				%td.text-center{style: "color: white;"}= @image.box_pallet
+				%td.text-left{style: "color: white;"} Caixas por pallet
+				%td.text-center{style: "color: #cacacawhite;"}= @image.box_pallet
 			%tr
 				%td.text-center{colspan: "2", rowspan: "2" ,style: "color: white;letter-spacing: 0.6px;"}= @image.description
 

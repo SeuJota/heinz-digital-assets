@@ -34,17 +34,17 @@
 				<%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Senha", style:"margin-bottom: 10px;"   %>
 				<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Confirmação de senha", style:"margin-bottom: 10px;"   %>
 <!-- 				<%= f.text_field :address, autocomplete: "off", :class => "form-control", placeholder: "Endereço", style:"margin-bottom: 10px;"   %> -->
-				<%= f.text_field :phone, autocomplete: "off", :class => "form-control", placeholder: "Telefone", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :phone, autocomplete: "off", :class => "form-control", :id => "phone", placeholder: "Telefone", style:"margin-bottom: 10px;"   %>
 
 			</div>
 
 			<div class="col-sm-6" style="margin-bottom: 15px;">
 				<p>Dados Empresariais</p>
 				<%= f.text_field :company, autocomplete: "off", :class => "form-control", placeholder: "Empresa", style:"margin-bottom: 10px;"   %>
-				<%= f.text_field :cnpj, autocomplete: "off", :class => "form-control", placeholder: "CNPJ Empresa", style:"margin-bottom: 10px;"   %>
+				<%= f.text_field :cnpj, autocomplete: "off", :class => "form-control", :id => "cnpj", placeholder: "CNPJ Empresa", style:"margin-bottom: 10px;"   %>
 				<%= f.text_field :area, autocomplete: "off", :class => "form-control", placeholder: "Departamento", style:"margin-bottom: 10px;"   %>
 				<%= f.text_field :work, autocomplete: "off", :class => "form-control", placeholder: "Cargo", style:"margin-bottom: 10px;"   %>
-				<%= f.select( :profile, [['Funcionário Heinz', 1], ['Cliente', 2], ['Fornecedor', 3]], {} , {:class => "form-control", placeholder: "Perfil de usuário", style:"margin-bottom: 10px;" })  %>
+				<%= f.select( :profile, [['Funcionário Heinz', 1], ['Cliente', 2], ['Fornecedor', 3]], {:include_blank => '-'} , {:class => "form-control", placeholder: "Perfil de usuário", style:"margin-bottom: 10px;"})  %>
 				
 			</div>
 			<div style="margin-bottom: 10px;"> <%= f.submit "Registrar", :class => "btn btn-lg btn-primary btn-block", style:"margin-bottom: 15px; width: 320px; margin: 0 auto;" %></div>
@@ -54,3 +54,21 @@
 		</div>
 	<% end %>
 </div>
+
+<script>
+$("#phone").mask("(99) 9999?9-9999");
+
+$("#phone").on("change", function() {
+    var last = $(this).val().substr( $(this).val().indexOf("-") + 1 );
+
+    if( last.length == 3 ) {
+        var move = $(this).val().substr( $(this).val().indexOf("-") - 1, 1 );
+        var lastfour = move + last;
+        var first = $(this).val().substr( 0, 9 );
+
+        $(this).val( first + '-' + lastfour );
+    }
+    console.log("craaaazy");
+});
+$("#cnpj").mask("99.999.999/9999-99");
+</script>

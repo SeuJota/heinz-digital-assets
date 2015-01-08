@@ -1,13 +1,37 @@
 # encoding: UTF-8
 # pt-BR translations for Devise
 en:
+  activerecord:
+    errors:
+        messages:
+            blank: "não pode estár em branco."
+            too_short: "é muito pequena (mínimo de %{count} caracteres)"
+            confirmation: "e senha estão diferentes."
+        models:
+            user:
+                attributes:
+                    email:
+                        blank: "não pode estár em branco."
+                        taken: "já está em uso."
+    attributes:
+      user:
+        password: Senha
+        email: E-mail
+        password_confirmation: Confirmação
+        company: Empresa
+        work: Cargo
+        area: Departamento
+        phone: Telefone
+        cnpj: CNPJ
+        profile: Perfil
+        name: Nome
   devise:
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
       send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta.'
       send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá uma mensagem com instruções para confirmação da sua conta.'
     failure:
-      not_approved: 'Sua conta ainda não foi ativada pelo administrador.'
+      not_approved: 'Sua conta ainda não foi aprovada pelo administrador.'
       already_authenticated: 'Você já está logado.'
       inactive: 'Sua conta ainda não foi ativada.'
       invalid: 'E-mail ou senha inválidos.'
@@ -15,13 +39,13 @@ en:
       locked: 'Sua conta está bloqueada.'
       not_found_in_database: 'E-mail ou senha inválidos.'
       timeout: 'Sua sessão expirou, por favor, efetue login novamente para continuar.'
-      unauthenticated: 'Para continuar, efetue login ou registre-se.'
+      unauthenticated: 'Cadastro efetuado com sucesso – Aguardando aprovacao de acesso.'
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
     mailer:
       confirmation_instructions:
         subject: 'Instruções de confirmação'
       reset_password_instructions:
-        subject: 'Instruções de troca de senha'
+        subject: 'Heinz - Catálogo Online - Troca de senha'
       unlock_instructions:
         subject: 'Instruções de desbloqueio'
     omniauth_callbacks:
@@ -59,5 +83,5 @@ en:
       not_found: "não encontrado"
       not_locked: "não foi bloqueado"
       not_saved:
-        one: "Não foi possível salvar %{resource}: 1 erro"
-        other: "Não foi possível salvar %{resource}: %{count} erros."
+        one: "Não foi possível efetuar o cadastro: 1 erro"
+        other: "Não foi possível efetuar o cadastro: %{count} erros."

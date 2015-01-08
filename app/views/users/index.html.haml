@@ -30,11 +30,11 @@
 					%td.text-center= user.email
 					%td.text-center
 						- if user.approved && user != current_user
-							= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm"
+							= link_to "Desaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm"
 						- elsif !user.approved && user != current_user
 							= link_to "Aprovar" , approved_path(id: user.id), method: :put, :class => "btn btn-primary btn-sm"
 						- else
-							= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
+							= link_to "Desaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
 					%td.text-center
 						- if user.admin && user != current_user
 							=link_to "Remover" , unset_admin_path(id: user.id), method: :put, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"
@@ -54,7 +54,7 @@
 					%td.text-center= user.name
 					%td.text-center= user.email
 					%td.text-center
-						= link_to "Disaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
+						= link_to "Desaprovar" , disapproved_path(id: user.id), method: :put, :class => "btn btn-default btn-sm", disabled: "disabled"
 					%td.text-center
 						=link_to "Remover" , unset_admin_path(id: user.id), :class => "btn btn-danger btn-sm", disabled: "disabled"
 

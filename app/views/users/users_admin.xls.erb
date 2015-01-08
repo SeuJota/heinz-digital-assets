@@ -8,6 +8,7 @@
       <th>Area</th>
       <th>Cargo</th>
       <th>Telefone</th>
+      <th>Perfil</th>
   </tr>
   <% @users.each do |u| %>
     <tr>
@@ -19,6 +20,14 @@
         <td> <%= u.area%> </td>
         <td> <%= u.work%> </td>
         <td> <%= u.phone%> </td>
+        <td><%= 
+          case u.profile
+          when "1" then "Funcionário Heinz"
+          when "2" then "Cliente"
+          when "3" then "Fornecedor"
+          end
+        %>
+        </td>
     </tr>
   <% end %>
 </table>

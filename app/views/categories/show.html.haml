@@ -22,7 +22,7 @@
 			= link_to @category.name, @category, method: :get, class: "btn btn-default btn-sm", disabled: "disabled"
 			%p{style: "position: absolute; right: 40%;color: #d3d3d3; bottom: -4px;"} ->
 			- unless @category.images.empty?
-				= link_to "All Images", category_images_path(@category),:class => "btn btn-success btn-sm", style: "position: absolute; right: 25%; display: inline;"
+				= link_to "Todos Produtos", category_images_path(@category),:class => "btn btn-success btn-sm", style: "position: absolute; right: 25%; display: inline;"
 		.col-md-12.text-center
 			%p{style: "color: #d3d3d3"} \/
 		.col-md-12.text-center

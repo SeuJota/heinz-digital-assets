@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default to: Proc.new { User.admin.pluck(:email) },
+  default to: Proc.new { User.approver.pluck(:email) },
 		  from: "support@heinzimagens.com.br"
 
 	def new_user_waiting_for_approval

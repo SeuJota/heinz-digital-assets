@@ -1,16 +1,12 @@
 .col-sm-6.text-center.heinz
-  =link_to image_tag("heinz_header.png", class: "centered"), category_path(id: "heinz"), :class => "heinzopt"
-  .form.col-sm-12.search
-    =form_tag(search_category_path(id: Category.find_by_name("Heinz").id)) do
-      .text-center
-        - unless @errorh.blank?
-          %p{style: "color: white;"}= @errorh
-        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", value: @queryh, style: "width: 250px; display: inline-block; height: 30px;"
+  %img.overf.ovlay(src="/assets/overflow.png")
+  =link_to image_tag("heinz_header.png", class: "upered"), category_path(id: "heinz"), :class => "heinzopt"
 .col-sm-6.text-center.quero
-  =link_to image_tag("quero_header.png", class: "centered"), category_path(id: "quero"), :class => "queroopt"
-  .form.col-sm-12.search
-    =form_tag(search_category_path(id: Category.find_by_name("Quero").id)) do
-      .text-center
-        - unless @errorq.blank?
-          %p{style: "color: white;"}= @errorq
-        =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", value: @queryq, style: "width: 250px; display: inline-block; height: 30px;"
+  =link_to image_tag("quero_header.png", class: "upered"), category_path(id: "quero"), :class => "queroopt"
+.form.col-sm-12.search{style: "position: absolute; margin-top: 5%; z-index:2;"}
+  =form_tag(search_category_path(id: Category.find_by_name("Quero").id)) do
+    .text-center
+      - unless @errorh.blank?
+        %p{style: "color: white;"}= @errorh
+      =search_field_tag :query,nil, class: "form-control", placeholder: "Cód. | Nome", value: @queryq, style: "width: 300px; display: inline-block; height: 30px; box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.11), 0px 0px 0px 7px rgba(250,250,250,0.22);"
+

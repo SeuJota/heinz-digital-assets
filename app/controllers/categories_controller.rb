@@ -77,20 +77,41 @@ class CategoriesController < ApplicationController
 	end
 
 	def search
-		@images = Image.search(params[:query], @category.children_id)
-		@image = Image.find(@images[0].id) unless @images[0].nil?
-		redirect_to category_image_path(category_id: @image.category, id: @image) if @images.size == 1
-		render "categories/public/shutter" if @images.size > 1
-		if @images.size == 0
-			if @category.id == Category.find_by_name("Heinz").id
-				@errorh = "Nenhum resultado encontrado."
-				@queryh = params[:query]
-			else
-				@errorq = "Nenhum resultado encontrado."
-				@queryq = params[:query]
-			end
+		@heinzimages = Image.search(params[:query], Category.first.children_id)
+		@queroimages = Image.search(params[:query], Category.second.children_id)
+		@both = false
+		if @heinzimages.count > 0 && @queroimages.count > 0
+			@both = true
+			render "categories/public/shutter"
+		elsif @heinzimages.count > 0 && @queroimages.count == 0
+			@category = Category.first
+			@images = @heinzimages
+			render "categories/public/shutter"
+		elsif @heinzimages.count == 0 && @queroimages.count > 0
+			@category = Category.second
+			@images = @queroimages
+			render "categories/public/shutter"
+		else
+			@errorh = "Nenhum resultado encontrado."
+			@queryh = params[:query]
 			render "categories/public/index"
 		end
+		
+
+		# @images = Image.search(params[:query], @category.children_id)
+		# @image = Image.find(@images[0].id) unless @images[0].nil?
+		# redirect_to category_image_path(category_id: @image.category, id: @image) if @images.size == 1
+		# render "categories/public/shutter" if @images.size > 1
+		# if @images.size == 0
+		# 	if @category.id == Category.find_by_name("Heinz").id
+		# 		@errorh = "Nenhum resultado encontrado."
+		# 		@queryh = params[:query]
+		# 	else
+		# 		@errorq = "Nenhum resultado encontrado."
+		# 		@queryq = params[:query]
+		# 	end
+		# 	render "categories/public/index"
+		# end
 	end
 
 	private

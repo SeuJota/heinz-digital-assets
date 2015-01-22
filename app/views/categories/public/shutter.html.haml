@@ -1,38 +1,79 @@
-- if @category.ancestors.map{ |c| c.name}.include?("Heinz")
-  .col-sm-10.text-center.heinzhd{style: "padding-top: 3%;min-height: 100%;"}
-    = image_tag("heinz_header.png", width: "250px", style: "margin-bottom: 20px;")
-    .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
-      %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
-        - @category.ancestors.each do |cat|
-          =link_to cat.name, cat, style: "color: white"
-          = image_tag("arrow.png") unless cat == @category.ancestors.last
-      %ul.list-inline
-        - @images.each do |img|
-          %li.point{style: "padding: 0px;"}
-            .div{style: "max-width: 200px;"}
-              %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              .fuck{style:"display: inline-block; position: relative;"}
-                = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
-                .button-hover
-                  = image_tag("download.png", class: "download")
-  .col-sm-2.text-center.quero
-    =link_to image_tag("quero_header.png", style: "width: 100%;",class: "centered"), category_path(id: "quero"), :class => "querosmall"
+- if @both
+  .col-sm-6.text-center.heinz{style: "padding-top: 3%;min-height: 100%;"}
+    %img.overfboth.ovlay(src="/assets/overflow.png")
+    .nothing
+      = image_tag("heinz_header.png", width: "250px", style: "margin-bottom: 20px;")
+      .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
+        %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
+          - Category.first.ancestors.each do |cat|
+            =link_to cat.name, cat, style: "color: white"
+            = image_tag("arrow.png") unless cat == Category.first.ancestors.last
+        %ul.list-inline
+          - @heinzimages.each do |img|
+            %li.point{style: "padding: 0px;"}
+              .div{style: "max-width: 200px;"}
+                %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
+                .fuck{style:"display: inline-block; position: relative;"}
+                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                  .button-hover
+                    = image_tag("download.png", class: "download")
+  .col-sm-6.text-center.quero{style: "padding-top: 3%;min-height: 100%;"}
+    .nothing
+      = image_tag("quero_header.png", width: "250px", style: "margin-bottom: 15px;")
+      .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
+        %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
+          - Category.second.ancestors.each do |cat|
+            =link_to cat.name, cat, style: "color: white"
+            = image_tag("arrow.png") unless cat == Category.second.ancestors.last
+        %ul.list-inline
+          - @queroimages.each do |img|
+            %li.point{style: "padding: 0px;"}
+              .div{style: "max-width: 200px;"}
+                %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
+                .fuck{style:"display: inline-block; position: relative;"}
+                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                  .button-hover
+                    = image_tag("download.png", class: "download")
 - else
-  .col-sm-2.heinz.text-center
-    =link_to image_tag("heinz_header.png", style: "width: 100%;",class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
-  .col-sm-10.text-center.querohd{style: "padding-top: 3%;min-height: 100%;"}
-    = image_tag("quero_header.png", width: "250px", style: "margin-bottom: 20px;")
-    .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
-      %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
-        - @category.ancestors.each do |cat|
-          =link_to cat.name, cat, style: "color: white"
-          = image_tag("arrow.png") unless cat == @category.ancestors.last
-      %ul.list-inline
-        - @images.each do |img|
-          %li.point{style: "padding: 0px;"}
-            .div{style: "max-width: 200px;"}
-              %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
-              .fuck{style:"display: inline-block; position: relative;"}
-                = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
-                .button-hover
-                  = image_tag("download.png", class: "download")
+  - if @category.ancestors.map{ |c| c.name}.include?("Heinz")
+    .col-sm-10.text-center.heinzhd{style: "padding-top: 3%;min-height: 100%;"}
+      %img.overfheinz.ovlay(src="/assets/overflow.png")
+      .nothing
+        = image_tag("heinz_header.png", width: "250px", style: "margin-bottom: 20px;")
+        .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
+          %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
+            - @category.ancestors.each do |cat|
+              =link_to cat.name, cat, style: "color: white"
+              = image_tag("arrow.png") unless cat == @category.ancestors.last
+          %ul.list-inline
+            - @images.each do |img|
+              %li.point{style: "padding: 0px;"}
+                .div{style: "max-width: 200px;"}
+                  %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
+                  .fuck{style:"display: inline-block; position: relative;"}
+                    = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                    .button-hover
+                      = image_tag("download.png", class: "download")
+    .col-sm-2.text-center.quero
+      =link_to image_tag("quero_header.png", style: "z-index: 2;width: 100%;",class: "centered"), category_path(id: "quero"), :class => "querosmall"
+  - else
+    .col-sm-2.heinz.text-center
+      %img.overfquero.ovlay(src="/assets/overflow.png")
+      =link_to image_tag("heinz_header.png", style: "z-index: 2;width: 100%;",class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
+    .col-sm-10.text-center.querohd{style: "padding-top: 3%;min-height: 100%;"}
+      .nothing
+        = image_tag("quero_header.png", width: "250px", style: "margin-bottom: 20px;")
+        .jumbotron{style: "padding: 10px;background-color:transparent !important;"}
+          %h1{style: "color: white; margin-bottom: 30px; margin-top:0px; font-size: 2em;"}
+            - @category.ancestors.each do |cat|
+              =link_to cat.name, cat, style: "color: white"
+              = image_tag("arrow.png") unless cat == @category.ancestors.last
+          %ul.list-inline
+            - @images.each do |img|
+              %li.point{style: "padding: 0px;"}
+                .div{style: "max-width: 200px;"}
+                  %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
+                  .fuck{style:"display: inline-block; position: relative;"}
+                    = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                    .button-hover
+                      = image_tag("download.png", class: "download")

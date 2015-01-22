@@ -4,6 +4,57 @@
 .parent{
 	height: 100%;
 }
+.nothing {
+  position:relative;
+  z-index:4;
+}
+
+.overf {
+  width: 200%;
+  max-width: auto;
+  height: 100%;
+  position:absolute;
+  overflow:visible;
+  z-index: 1;
+  text-align: left;
+  flow: left;
+  left: 0px;
+}
+
+.overfboth {
+  width: 200%;
+  height: 100%;
+  position:absolute;
+  overflow:visible;
+  z-index: 1;
+  text-align: left;
+  flow: left;
+  margin-top: -6%;
+  left: 0px;
+}
+
+.overfheinz {
+  width: 120%;
+  height: 98%;
+  position:absolute;
+  overflow:visible;
+  z-index: 1;
+  text-align: left;
+  flow: left;
+  margin-top: -3.5%;
+  left: 0px;
+}
+
+.overfquero {
+  width: 600%;
+  height: 98%;
+  position:absolute;
+  overflow:visible;
+  z-index: 1;
+  text-align: left;
+  flow: left;
+  left: 0px;
+}
 
 div{
   -webkit-transition: all 500ms ease-in-out 0s;
@@ -146,6 +197,12 @@ html, body {
 .centered {
   position: relative;
   top: 40%;
+}
+
+.upered {
+  position: relative;
+  top: 20%;
+  z-index:3;
 }
 .search {
   position: relative;

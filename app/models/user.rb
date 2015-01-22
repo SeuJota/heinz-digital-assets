@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
 	scope :admin, -> {where(admin: true).order("updated_at DESC") }
 	scope :approved, -> { where(approved: true).order("updated_at DESC") }
-	scope :disapproved, -> { where(approved: false).order("updated_at DESC") 
+	scope :disapproved, -> { where(approved: false).order("updated_at DESC") }
 	scope :approver, -> { where(approver: true).order("updated_at DESC") }
 		
 	STABLE = ["guilhermebav@gmail.com", "daniel@lado9.com.br", "renato@lado9.com.br"]

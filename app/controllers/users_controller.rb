@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_user, only: [:show, :edit, :update, :destroy, :approved,
-		 :disapproved, :set_admin, :unset_admin]
+		 :disapproved, :approver, :disapprover, :set_admin, :unset_admin]
 	before_action :is_admin?
 
 	def users_admin
@@ -49,6 +49,17 @@ class UsersController < ApplicationController
 		redirect_to users_path(approved: false)
 	end
 
+	def approver
+		@user.update(approver: true)
+		# AdminMailer.user_approved(@user).deliver
+		redirect_to users_path()
+	end
+
+	def disapprover
+		@user.update(approver: false)
+		redirect_to users_path()
+	end
+
 	def public
 		session[:public] = "user" if current_user.admin?
 		redirect_to(:back)
@@ -90,7 +101,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		registration_params = [:name, :email, :password, :password_confirmation, :approved, :admin, :area, :address, :phone, :company, :cnpj, :work, :profile]
+		registration_params = [:name, :email, :password, :password_confirmation, :approved, :master, :approver, :admin, :area, :address, :phone, :company, :cnpj, :work, :profile]
 		params.require(:user).permit(registration_params)
 	end
 end

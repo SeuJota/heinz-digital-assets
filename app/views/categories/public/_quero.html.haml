@@ -1,13 +1,15 @@
 .parent
   .col-sm-2.heinz.text-center
-    =link_to image_tag("heinz_header.png", style: "width: 100%;", class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
+    %img.overfquero.ovlay(src="/assets/overflow.png")
+    =link_to image_tag("heinz_header.png", style: "z-index: 2;width: 100%;", class: "centered"), category_path(id: "heinz"), :class => "heinzsmall"
   .col-sm-10.querohd.text-center{style: "padding-top: 3%;min-height: 100%;"}
-    = image_tag("quero_header.png")
-    %h1{style: "color: white; margin-bottom: 15px; margin-top:25px; font-size: 2em;"}
-      - @category.ancestors.each do |cat|
-        =link_to cat.name, cat, style: "color: white"
-        = image_tag("arrow.png") unless cat == @category.ancestors.last
-    = image_tag("down_equal.png", style: "margin-bottom: 15px;")
-    %ul{style: "padding: 0px; list-style: none; margin-bottom: 50px;"}
-      - @category.children.each do |cat|
-        %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 14pt;color: #faf9f1; text-rendering: optimizeLegibility; letter-spacing: 1.5px;"
+    .nothing
+      = image_tag("quero_header.png")
+      %h1{style: "color: white; margin-bottom: 15px; margin-top:25px; font-size: 2em;"}
+        - @category.ancestors.each do |cat|
+          =link_to cat.name, cat, style: "color: white"
+          = image_tag("arrow.png") unless cat == @category.ancestors.last
+      = image_tag("down_equal.png", style: "margin-bottom: 15px;")
+      %ul{style: "padding: 0px; list-style: none; margin-bottom: 50px;"}
+        - @category.children.each do |cat|
+          %li{style: "margin-bottom: 10px; display: block;", class: "cat_quero"}= link_to cat.name, cat, style: "font-size: 14pt;color: #faf9f1; text-rendering: optimizeLegibility; letter-spacing: 1.5px;"

@@ -1,4 +1,73 @@
-<table border="1" style="font-size: 1em; width: 75%">
+<?xml version="1.0" encoding="UTF-8"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="blank">
+      <Font ss:Color="#FFFFFF" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Export">
+    <Table>
+      <ss:Column ss:Width="25"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="60"/>
+      <ss:Column ss:Width="120"/>
+      <ss:Column ss:Width="120"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="100"/>
+      <Row>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">id</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">name</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">code</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">upc</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">dim_unit</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">weight_unit</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">box_unit</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">dim_box</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">weight_box</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">box_pallet</Data></Cell>
+        <Cell ss:StyleID="blank"><Data ss:Type="String">description</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nome</Data></Cell>
+        <Cell><Data ss:Type="String">Código</Data></Cell>
+        <Cell><Data ss:Type="String">UPC Code</Data></Cell>
+        <Cell><Data ss:Type="String">Dimensões Unidade</Data></Cell>
+        <Cell><Data ss:Type="String">Peso Unidade</Data></Cell>
+        <Cell><Data ss:Type="String">Unidades por Caixa</Data></Cell>
+        <Cell><Data ss:Type="String">Dmensões Caixa</Data></Cell>
+        <Cell><Data ss:Type="String">Peso Caixa</Data></Cell>
+        <Cell><Data ss:Type="String">Caixas por Pallet</Data></Cell>
+        <Cell><Data ss:Type="String">Descrição</Data></Cell>
+      </Row>
+    <% @images.each do |u| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= u.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.code %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.upc %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.dim_unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.weight_unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.box_unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.dim_box %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.weight_box %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.box_pallet %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.description %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+<!-- <table border="1" style="font-size: 1em; width: 75%">
   <tr style=" border: 1px solid white; color:white;">
       <th style="border: 1px solid white; border-bottom: 1px solid black;">id</th>
       <th style="border: 1px solid white; border-bottom: 1px solid black;">name</th>
@@ -40,4 +109,4 @@
         <td> <%= u.description%> </td>
     </tr>
   <% end %>
-</table>
+</table> -->

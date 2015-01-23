@@ -32,7 +32,9 @@ $(document).on('page:change', function () {
     $('.overfboth').width( $('.overfboth').width());
     $('.heinz').children().not('.ovlay').toggle();
     $('.search').toggle();
+    temp = $('.querohd').height();
     $('.querohd').children().toggle();
+    $('.querohd').height(temp);
     $('.querohd').toggleClass('col-sm-10 col-sm-2');
     $('.heinz').toggleClass('col-sm-2 col-sm-10');
     setTimeout(function() {
@@ -45,7 +47,9 @@ $(document).on('page:change', function () {
     $('.overfheinz').width( $('.overfheinz').width());
     $('.overfquero').width( $('.overfquero').width());
     $('.overfboth').width( $('.overfboth').width());
+    temp = $('.heinzhd').height();
     $('.heinzhd').children().not('.ovlay').toggle();
+    $('.heinzhd').height(temp);
     $('.search').toggle();
     $('.quero').children().toggle();
     $('.quero').toggleClass('col-sm-10 col-sm-2');

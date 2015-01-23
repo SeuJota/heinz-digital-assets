@@ -27,7 +27,7 @@ class Image < ActiveRecord::Base
   def self.search(query, cat_children)
     if query.present?
       if query.is_number?
-        return where("code = :c", c: query)
+        return where("code = :c", c: query).where("category_id IN (?)", cat_children)
       else
         where("name @@ :q", q: query).where("category_id IN (?)", cat_children)
       end

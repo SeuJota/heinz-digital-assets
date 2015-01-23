@@ -14,7 +14,7 @@
               .div{style: "max-width: 200px;"}
                 %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
                 .fuck{style:"display: inline-block; position: relative;"}
-                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(Category.first, img)
                   .button-hover
                     = image_tag("download.png", class: "download")
   .col-sm-6.text-center.quero{style: "padding-top: 3%;min-height: 100%;"}
@@ -31,7 +31,7 @@
               .div{style: "max-width: 200px;"}
                 %p{style: "margin-bottom: 10px; font-size: 15px; color: white;"}= img.name
                 .fuck{style:"display: inline-block; position: relative;"}
-                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(@category, img)
+                  = link_to image_tag(img.avatar.url(:thumb), class: "prod"), category_image_path(Category.second, img)
                   .button-hover
                     = image_tag("download.png", class: "download")
 - else

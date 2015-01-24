@@ -8,11 +8,14 @@
     <Style ss:ID="blank">
       <Font ss:Color="#FFFFFF" />
     </Style>
+    <Style ss:ID="value">
+      <NumberFormat ss:Format="@"/>
+    </Style>
   </Styles>
   <Worksheet ss:Name="Export">
     <Table>
       <ss:Column ss:Width="25"/>
-      <ss:Column ss:Width="100"/>
+      <ss:Column ss:Width="150"/>
       <ss:Column ss:Width="60"/>
       <ss:Column ss:Width="120"/>
       <ss:Column ss:Width="120"/>
@@ -50,17 +53,17 @@
       </Row>
     <% @images.each do |u| %>
       <Row>
-        <Cell><Data ss:Type="String"><%= u.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.name %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.code %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.upc %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.dim_unit %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.weight_unit %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.box_unit %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.dim_box %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.weight_box %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.box_pallet %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= u.description %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.id %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.name %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.code %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.upc %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.dim_unit %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.weight_unit %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.box_unit %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.dim_box %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.weight_box %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.box_pallet %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.description %></Data></Cell>
       </Row>
     <% end %>
     </Table>

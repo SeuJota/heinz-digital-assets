@@ -1,4 +1,62 @@
-<table border="1" style="font-size: 1em; width: 75%">
+<?xml version="1.0" encoding="UTF-8"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="value">
+      <NumberFormat ss:Format="@"/>
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Usuários">
+    <Table>
+      <ss:Column ss:Width="25" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="120" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="160" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="150" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="120" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="100" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="100" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="100" ss:AutoFitWidth="1"/>
+      <ss:Column ss:Width="100" ss:AutoFitWidth="1"/>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nome</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Empresa</Data></Cell>
+        <Cell><Data ss:Type="String">CNPJ Empresa</Data></Cell>
+        <Cell><Data ss:Type="String">Area</Data></Cell>
+        <Cell><Data ss:Type="String">Cargo</Data></Cell>
+        <Cell><Data ss:Type="String">Telefone</Data></Cell>
+        <Cell><Data ss:Type="String">Perfil</Data></Cell>
+      </Row>
+    <% @users.each do |u| %>
+      <Row>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.id %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.name %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.email %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.company %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.cnpj %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.area %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.work %></Data></Cell>
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= u.phone %></Data></Cell>
+
+        <Cell ss:StyleID="value"><Data ss:Type="String"><%= 
+            case u.profile
+              when "1" then "Funcionário Heinz"
+              when "2" then "Cliente"
+              when "3" then "Fornecedor"
+            end
+        %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+
+<!-- <table border="1" style="font-size: 1em; width: 75%">
   <tr>
       <th>ID</th>
       <th>Nome</th>
@@ -30,4 +88,4 @@
         </td>
     </tr>
   <% end %>
-</table>
+</table> -->

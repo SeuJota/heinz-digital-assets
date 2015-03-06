@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123193600) do
+ActiveRecord::Schema.define(version: 20150306062456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150123193600) do
     t.string   "slug"
   end
 
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -65,6 +66,8 @@ ActiveRecord::Schema.define(version: 20150123193600) do
     t.string   "box_pallet"
     t.string   "description"
   end
+
+  add_index "images", ["category_id"], name: "index_images_on_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

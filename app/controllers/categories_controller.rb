@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 	before_action :set_category, only: [:show, :edit, :update, :destroy, :search]
 	before_action :authenticate_user!
 	before_action :is_admin?, only: [:edit, :update, :new, :destroy]
-	caches_page :index, :show, :new
+	caches_page :show, :new
 
 	def root_page
 	end

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 		 :disapproved, :approver, :disapprover, :set_admin, :unset_admin]
 	before_action :is_admin?
 
+	caches_page :users_admin
+
 	def users_admin
 		if params[:approved] == "false"
 			@users = User.disapproved.order("updated_at DESC")

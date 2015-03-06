@@ -2,6 +2,8 @@ class ImagesController < ApplicationController
 	before_action :set_image, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
+  caches_page :index, :show, :new, :edit
+
   def index
     @category = Category.friendly.find(params[:category_id])
     @images = @category.images

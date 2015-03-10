@@ -52,7 +52,7 @@ gem "paperclip", "~> 3.5.3"
 gem "cocaine"
 
 # Connection with database and S3 Amazon 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # User authentication and sessions control gem
 gem 'devise'

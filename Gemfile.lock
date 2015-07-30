@@ -168,7 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack-page_caching
-  aws-sdk
+  aws-sdk (< 2.0)
   cocaine
   coffee-rails (~> 4.0.0)
   devise

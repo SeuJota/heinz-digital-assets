@@ -10,7 +10,20 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'guilhermebav@gmail.com'
+
+  
+  
+  ##########################################################################
+
+  # configurar e-mail padrão para envio de mensagens do sistema
+  # mensagens como confirmação de cadastro e aprovação de usuários.
+
+  #config.mailer_sender = 'guilhermebav@gmail.com'
+
+  ##########################################################################
+
+
+
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

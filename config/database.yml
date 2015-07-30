@@ -22,7 +22,7 @@ default: &default
   pool: 5
 
 development:
-  <<: *default
-  database: heinz
-  username: Guilherme
-  password: Tolkien15
+  # <<: *default
+  # database: heinz
+  # username: Guilherme
+  # password: senha1
